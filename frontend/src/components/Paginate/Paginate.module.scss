@@ -1,0 +1,121 @@
+// render item
+.wrap-list-film {
+
+    .list-film {
+        padding-bottom: 12px;
+    }
+}
+
+
+
+.home-body {
+    margin-top: 16px;
+
+    .home-list-movie {}
+
+    .container-pagignate {
+        display: flex;
+        margin: 24px 0 64px;
+
+
+        .pagignate {
+            display: flex;
+            justify-items: center;
+            margin: 0 auto;
+
+            .previous {
+                margin: 0 2px;
+
+                a {
+                    padding: 8px 16px;
+                    font-size: 1.6rem;
+                    color: #f3dede;
+                    background-color: #a54f4f;
+                    border: none;
+
+                    &:hover {
+                        background-color: #4caf50 !important;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .list {
+                margin: 0 2px;
+
+                &.active {
+                    background-color: #4caf50;
+                    cursor: pointer;
+
+                    a {
+                        background-color: #4caf50;
+                        cursor: pointer;
+                    }
+                }
+
+                a {
+                    padding: 8px 16px;
+                    font-size: 1.6rem;
+                    color: #f3dede;
+                    background-color: #585858;
+                    border: none;
+
+                    &:hover {
+                        background-color: #4caf50 !important;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .break {
+                margin: 0 2px;
+
+                &.active {
+                    background-color: #4caf50;
+                    cursor: pointer;
+
+                    a {
+                        background-color: #4caf50;
+                        cursor: pointer;
+                    }
+                }
+
+                a {
+                    padding: 8px 16px;
+                    font-size: 1.6rem;
+                    color: #f3dede;
+                    background-color: #585858;
+                    border: none;
+
+                    &:hover {
+                        background-color: #4caf50 !important;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .next {
+                margin: 0 2px;
+
+                a {
+                    padding: 8px 16px;
+                    font-size: 1.6rem;
+                    color: #f3dede;
+                    background-color: #a54f4f;
+                    border: none;
+
+                    &:hover {
+                        background-color: #4caf50 !important;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .disabled {
+                opacity: .5;
+                user-select: none;
+                pointer-events: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.wrap-emoji {
+    position: relative;
+    display: inline-block;
+
+    .icon-close {
+        position: absolute;
+        top: 7.5%;
+        right: 5%;
+        background: #333333;
+        font-size: 2.8rem;
+        border-radius: 6px;
+        z-index: 1;
+        color: #c0c0bf;
+        padding: 7px 8px;
+
+        &:hover {
+
+            cursor: pointer;
+            opacity: .5;
+        }
+    }
+
+    .icon-show-emoji {
+        background: #6b6a6a;
+        color: #fff;
+        padding: 6px 14px;
+        font-size: 1.4rem;
+        font-weight: 700;
+        display: block;
+        border-radius: 6px;
+        box-shadow: 0 2px 2px #000;
+
+        &:hover {
+            opacity: .8;
+            cursor: pointer;
+        }
+    }
+}

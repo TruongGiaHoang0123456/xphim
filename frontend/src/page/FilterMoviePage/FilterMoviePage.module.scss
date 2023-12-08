@@ -1,0 +1,220 @@
+.filter-movie {
+
+    // filter
+    .filter {
+        margin: 12px 12px 0;
+        position: relative;
+        border: 1px solid #4c4c4c;
+        z-index: 10;
+
+        .before {
+            display: flex;
+            justify-content: center;
+            background: #1d1c1c;
+
+            div {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px 0;
+                cursor: pointer;
+
+                span {
+                    color: #fff;
+                    font-size: 1.6rem;
+                }
+
+                svg {
+                    color: #fff;
+                    font-size: 1.6rem;
+                    margin-left: 6px;
+                }
+            }
+        }
+
+        .after {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #1d1c1c;
+            justify-content: start;
+
+            .option {
+                border-top: 2px solid #3a79af;
+                padding: 12px 8px 0;
+
+                &.option+.option {
+                    margin-top: 12px;
+                }
+
+                .content {
+                    color: #fff;
+                    font-size: 1.6rem;
+                }
+
+                .movie-genre {
+                    margin-top: 8px;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    a {
+                        padding: 10px;
+                        background-color: #444444;
+                        font-size: 1.4rem;
+                        color: #fff;
+                        margin: 4px 4px 0 0;
+                        cursor: pointer;
+                    }
+
+                    button {
+                        padding: 10px;
+                        background-color: #444444;
+                        font-size: 1.4rem;
+                        color: #fff;
+                        margin: 4px 4px 0 0;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .button-filter {
+                background-color: #fff;
+                background-color: red;
+                margin-bottom: 12px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 8px 16px;
+                background-color: #b73a3a;
+                margin: 12px auto 8px;
+                border-radius: 4px;
+                color: #fff;
+                border-bottom: 2px solid #621818;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: .5;
+                }
+
+                svg {
+                    font-size: 1.4rem;
+                }
+
+                span {
+                    font-size: 1.4rem;
+                    margin-left: 4px;
+                }
+            }
+        }
+    }
+
+    .button-filter {
+        display: flex;
+        margin: 12px 12px 0;
+
+        button {
+            background-color: #3a79af;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px;
+
+            span {
+                font-size: 1.4rem;
+                color: #fff;
+                padding-left: 6px;
+            }
+
+            svg {
+                font-size: 1.6rem;
+                color: #fff;
+                margin-left: 4px;
+                padding: 8px 6px 8px 2px;
+                cursor: pointer;
+            }
+        }
+
+        button+button {
+            margin-left: 6px;
+        }
+
+    }
+}
+
+
+// mobile and table
+@media (max-width: 63.9375em) {}
+
+// pc resoluction small and pc resoluction large
+@media (min-width: 64em) {}
+
+// mobile
+@media (max-width: 46.1875em) {
+    .filter-movie {
+
+        // filter
+        .filter {
+            margin: 12px 8px;
+
+            .before {
+
+                div {
+
+                    span {}
+
+                    svg {}
+                }
+            }
+
+            .after {
+
+                .option {
+
+                    &.option+.option {}
+
+                    .content {}
+
+                    .movie-genre {
+
+                        a {}
+
+                        button {}
+                    }
+                }
+
+                .button-filter {
+
+                    &:hover {}
+
+                    svg {}
+
+                    span {}
+                }
+            }
+        }
+
+        .button-filter {
+
+            button {
+
+                span {}
+
+                svg {}
+            }
+
+            button+button {}
+
+        }
+    }
+}
+
+// table
+@media (min-width:46.25em) and (max-width: 63.9375em) {}
+
+// pc resoluction small
+@media (min-width:64em) and (max-width: 77.4375em) {}
+
+// pc resoluction large
+@media (min-width:77.5em) {}

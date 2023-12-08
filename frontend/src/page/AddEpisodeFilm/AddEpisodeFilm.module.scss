@@ -1,0 +1,93 @@
+.wrap-add-film {
+    padding: 0 72px 24px;
+
+    .topic {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .form {
+
+        .wrap-infor {
+            margin-top: 24px;
+
+            .label-name {
+                display: block;
+                font-size: 1.6rem;
+                font-weight: 700;
+                color: #000;
+            }
+
+            .input-text {
+                font-size: 1.6rem;
+                padding: 4px 8px;
+                width: 100%;
+                color: #000;
+                margin-top: 8px;
+                outline: none;
+            }
+
+            .area-text {
+                font-size: 1.6rem;
+                padding: 4px 8px;
+                width: 100%;
+                color: #000;
+                margin-top: 8px;
+                outline: none;
+
+                font-size: 1.6rem;
+                padding: 4px 8px;
+                width: 100%;
+                color: #000;
+                margin-top: 8px;
+                outline: none;
+            }
+
+            .wrap-list-genres {
+                display: flex;
+                flex-wrap: wrap;
+
+                .wrap-item-genres {
+                    // margin: 0 12px;
+
+                    input {}
+
+                    label {
+                        font-size: 1.6rem;
+                        cursor: pointer;
+                        color: #000;
+                    }
+                }
+            }
+
+            .wrap-input-radio {
+                margin-top: 6px;
+
+                input {}
+
+                label {
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                    color: #000;
+                }
+            }
+        }
+
+        .btn-submit {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #000;
+            padding: 12px;
+            margin-top: 32px;
+            margin: 32px auto 0;
+            background: repeating-linear-gradient(45deg, red, transparent 99px);
+
+            &:hover {
+                opacity: .8;
+                cursor: pointer;
+            }
+        }
+    }
+}

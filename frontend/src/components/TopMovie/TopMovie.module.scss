@@ -1,0 +1,93 @@
+.wrap-top-movie {
+
+    .top-movie {
+        border: 1px solid var(--border-color);
+        margin-top: 12px;
+
+        .top-movie-before {
+            display: flex;
+            background-color: #423e3e;
+
+            .top-movie-title {
+                flex: 1 1;
+                padding: 11px 0px;
+                font-size: 1.8rem;
+                text-align: center;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: var(--red-color) !important;
+                    color: #eee !important;
+                }
+            }
+        }
+
+        .top-movie-after {
+            background-color: var(--inner-color);
+
+            .top-movie-item {
+                padding: 0 12px;
+
+                &.top-movie-item+.top-movie-item {
+                    border-top: 1px solid var(--border-color);
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: .6;
+                }
+
+                a {
+                    display: flex;
+                    padding: 12px 0px;
+
+                    .wrap-img {
+
+                        img {
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+
+                    .wrap-infor {
+                        margin-left: 6px;
+
+                        h3 {
+                            color: #fff;
+                            margin: 0;
+                            font-size: 1.6rem;
+                        }
+
+                        span {
+                            margin-top: 6px;
+                            display: block;
+                            color: var(--disable-color);
+                            font-size: 1.4rem;
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        .top-movie-all {
+
+            span {
+                font-size: 1.6rem;
+                color: var(--white-color);
+                padding: 4px 0;
+                text-align: center;
+                // background-color: var(--red-color);
+                border-top: 1px solid var(--border-color);
+                display: block;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: .8;
+                }
+            }
+        }
+    }
+
+}

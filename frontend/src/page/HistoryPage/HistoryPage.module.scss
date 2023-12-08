@@ -1,0 +1,104 @@
+.history {
+    background-color: #2d2d2d;
+    width: 100%;
+
+    // movie-viewing-history
+    .movie-viewing-history {
+        background-color: #404040;
+        padding: 12px;
+        border-radius: 4px;
+        margin: 12px 12px 0;
+
+        .infor-movie {
+            display: flex;
+            align-items: center;
+            margin-top: 12px;
+
+            .avata {
+                border-radius: 999px;
+                overflow: hidden;
+                width: 70px;
+                height: 70px;
+                border: 4px solid #737373;
+                position: absolute;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .descript-movie {
+                flex: 1;
+                background-color: #000;
+                margin: 6px 12px 6px 40px;
+                padding: 6px 0 6px 38px;
+                width: 85%;
+
+
+                div {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+
+                    .name {
+                        display: block;
+                        font-size: 1.8rem;
+                        color: #fff;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        width: 70%;
+                    }
+
+                    .time {
+                        font-size: 1.4rem;
+                        color: #84d77f;
+                        margin-right: 12px;
+                        margin-bottom: -7px;
+                    }
+                }
+
+                .episode {
+                    display: block;
+                    font-size: 1.6rem;
+                    color: #ffaeae;
+                    margin-top: 4px;
+                }
+            }
+        }
+
+        .require-login {
+
+            span {
+
+                font-size: 1.6rem;
+                color: #ccc;
+                font-weight: 600;
+
+            }
+
+            a {
+                margin-left: 6px;
+                background: #b73a3a;
+                padding: 6px 6px;
+                font-size: 1.8rem;
+                border-radius: 4px;
+                color: #fff;
+                display: inline-block;
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: .5;
+                }
+            }
+        }
+    }
+
+    // read-stories
+    .read-stories {
+        text-align: center;
+        margin-top: 12px;
+    }
+}

@@ -1,0 +1,42 @@
+.wrap-header {
+    // background: url('https://ep.edu.vn/anh-trang-den-dep-nghe-thuat/imager_23407.jpg');
+    // background-position: left;
+    background-color: var(--header-layout);
+
+    .header {
+        display: flex;
+        height: 52px;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-logo {
+            height: 38px;
+
+            .logo {
+                height: 100%;
+                margin-left: -2px;
+            }
+        }
+    }
+}
+
+// mobile and table
+@media (max-width: 63.9375em) {}
+
+// mobile
+@media (max-width: 46.1875em) {
+    .header {
+        flex-direction: column;
+        height: unset;
+        padding: 12px;
+    }
+}
+
+// table
+@media (min-width:46.25em) and (max-width: 63.9375em) {}
+
+// pc resoluction small
+@media (min-width:64em) and (max-width: 77.4375em) {}
+
+// pc resoluction big
+@media (min-width:77.5em) {}

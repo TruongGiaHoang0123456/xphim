@@ -1,0 +1,111 @@
+.list-film {
+
+    .topic {}
+
+    .wrap-list-film {
+        margin-top: 24px;
+
+        .film-item {
+            margin-top: 36px;
+            display: flex;
+
+            .first {
+                width: 120px;
+
+                .before {
+                    span {
+                        font-size: 1.4rem;
+                    }
+
+                    h3 {
+                        margin: 0;
+                    }
+                }
+
+                .after {
+                    margin-top: 6px;
+
+                    span {
+                        display: block;
+                        font-size: 1.4rem;
+
+                    }
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .second {
+                width: 172px;
+                margin-left: 12px;
+
+                .wrap-number-episode {
+
+                    .name {
+                        font-size: 1.4rem;
+                    }
+
+                    .number-episode {
+                        margin-left: 6px;
+                    }
+                }
+
+                .wrap-episode-new {
+                    margin-top: 6px;
+
+                    .name {
+                        font-size: 1.4rem;
+                    }
+
+
+                    .episode-current {
+                        margin-left: 6px;
+                    }
+                }
+
+                .wrap-movie-duration {
+                    margin-top: 6px;
+
+                    .name {
+                        font-size: 1.4rem;
+                    }
+
+                    .movie-duration {
+                        margin-left: 6px;
+                    }
+                }
+
+                .btn-add-film {
+                    background-color: red;
+                    color: #fff;
+                    font-size: 1.4rem;
+                    padding: 4px 16px;
+                    border-radius: 6px;
+                    margin-top: 6px;
+                    display: inline-block;
+                }
+
+            }
+
+            .third {
+                flex: 1;
+                margin-left: 12px;
+
+                div {}
+
+                span {
+                    font-size: 1.4rem;
+                }
+
+                p {
+                    text-align: justify;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}

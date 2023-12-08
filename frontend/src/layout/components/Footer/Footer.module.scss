@@ -1,0 +1,22 @@
+.wrap-footer {
+    background-color: var(--header-layout);
+
+    .footer {
+        height: 148px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 12px;
+        border-top: 1px solid #444;
+
+        .logo {
+            cursor: pointer;
+            height: 48px;
+        }
+
+        .ads {
+            margin-right: -14px;
+            cursor: pointer;
+        }
+    }
+}

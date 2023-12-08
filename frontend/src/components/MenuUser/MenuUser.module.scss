@@ -1,0 +1,222 @@
+.navigate-item {
+    width: 42px;
+    list-style: none;
+    background-color: #000;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-left: 4px;
+    position: relative;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+
+    .navigate-item-link {
+        width: 100%;
+        height: 100%;
+        padding: 7.7px 0;
+        color: #fff;
+    }
+
+    .wrap-notifycation {
+        position: absolute;
+        background: #000;
+        z-index: 10;
+        top: 140%;
+        width: 316px;
+        right: -12px;
+        max-height: 70vh;
+        overflow-y: auto;
+
+        .notifycation-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 4px solid red;
+            padding: 12px;
+
+            h2 {
+                color: #ccc;
+                font-size: 2.4rem;
+            }
+
+            a {
+                font-size: 1.6rem;
+            }
+        }
+
+        .notifycation-list {
+
+            .notifycation-item {
+                padding: 6px 12px;
+
+                &:hover {
+                    background-color: #2d2d2d;
+                }
+
+                &.notifycation-item+.notifycation-item {
+                    margin-top: 12px;
+                }
+
+                .notifycation-item-link {
+                    display: flex;
+                    align-items: center;
+
+                    .wrap-image {
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .wrap-infor {
+                        width: 100%;
+                        margin-left: 12px;
+                        text-align: start;
+
+                        h3 {
+                            font-size: 1.6rem;
+                            margin: 0;
+                        }
+
+                        p {
+                            font-size: 1.4rem;
+                            margin: 6px 0 0;
+                            width: 220px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        span {
+                            font-size: 1.4rem;
+                            margin-top: 6px;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    .isread {
+        opacity: .6;
+    }
+
+}
+
+.menu-user {
+    position: absolute;
+    width: 200px;
+    padding: 12px 0;
+    top: 135%;
+    right: -12px;
+    border-radius: 2px;
+    background-color: #000;
+    z-index: 11;
+    animation: menuUser linear .1s;
+    cursor: auto;
+
+    .user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 96px;
+            height: 96px;
+            border-radius: 99px;
+            object-fit: cover;
+        }
+
+        span {
+            color: #ffb970;
+            font-size: 1.8rem;
+            margin-top: 12px;
+            width: 170px;
+            padding: 0 24px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+        }
+    }
+
+    .feature {
+        display: flex;
+        flex-direction: column;
+        margin-top: 12px;
+
+        a {
+            font-size: 1.6rem;
+            color: #ccc;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                background-color: #2d2d2d;
+            }
+
+            svg {}
+
+            span {
+                margin-left: 12px;
+            }
+        }
+    }
+}
+
+@keyframes menuUser {
+    from {
+        opacity: 0;
+        transform: scale(0);
+        // transform: ;
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// mobile
+@media (max-width: 46.1875em) {
+    .menu-user {
+        right: unset;
+        left: 68%;
+
+        .user {
+
+            img {}
+
+            span {}
+        }
+
+        .feature {
+
+            a {
+
+                &:hover {}
+
+                svg {}
+
+                span {}
+            }
+        }
+    }
+}
+
+// table
+@media (min-width:46.25em) and (max-width: 63.9375em) {}
+
+// pc resoluction small
+@media (min-width:64em) and (max-width: 77.4375em) {}
+
+// pc resoluction large
+@media (min-width:77.5em) {}

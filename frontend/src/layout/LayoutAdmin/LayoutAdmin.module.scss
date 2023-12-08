@@ -1,0 +1,94 @@
+.layout-admin {
+
+    .side-bar {
+        background: #140c25;
+
+        .wrap-logo {
+            padding: 0 8px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .title {
+            color: #939393;
+            background: black;
+            padding: 8px 8px;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        .wrap-category {
+            margin-top: 12px;
+
+            .category {
+
+                .first {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 12px;
+
+                    &:hover {
+                        cursor: pointer;
+                        background: #657674;
+                    }
+
+                    .before {
+
+                        .icon-category {
+                            font-size: 1.6rem;
+                            color: #ccc;
+                        }
+
+                        .name-category {
+                            font-size: 1.6rem;
+                            color: #ccc;
+                            margin-left: 6px;
+                        }
+
+                    }
+
+                    .after {
+                        .icon-left {
+                            font-size: 1.6rem;
+                            color: #ccc;
+                        }
+                    }
+                }
+
+                .second {
+                    align-items: center;
+                    margin-left: 16px;
+
+                    .before {
+                        padding: 12px;
+
+                        &:hover {
+                            cursor: pointer;
+                            background: #657674;
+                        }
+
+                        .icon-category {
+                            font-size: 1.6rem;
+                            color: #ccc;
+                        }
+
+                        .name-category {
+                            font-size: 1.6rem;
+                            color: #ccc;
+                            margin-left: 6px;
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    .wrap-body {
+        padding: 0 72px 24px;
+    }
+}

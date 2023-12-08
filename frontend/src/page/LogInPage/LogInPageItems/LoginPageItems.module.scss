@@ -1,0 +1,60 @@
+// account-google
+.login-with-google {
+    margin-top: 12px;
+    padding: 6px;
+    background-color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+
+    .logged {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        img {
+            width: 24px;
+            border-radius: 99px;
+        }
+
+        .user-infor {
+            margin: 0 8px;
+
+            div {
+                font-size: 1.4rem;
+                color: '#333';
+                font-weight: 500;
+            }
+
+            span {
+                font-size: 1.2rem;
+                color: '#666'
+            }
+        }
+
+        svg {
+            font-size: 2.2rem;
+            color: red;
+        }
+    }
+
+    .un-loggin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            font-size: 1.8rem;
+            color: '#333';
+            font-weight: 500;
+        }
+
+        svg {
+            font-size: 1.6rem;
+            margin-left: 6px;
+            margin-top: 2px;
+            color: blueviolet;
+        }
+
+    }
+}

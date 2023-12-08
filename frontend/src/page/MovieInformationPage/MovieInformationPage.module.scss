@@ -1,0 +1,343 @@
+// movie-information
+.movie-information {
+    background-color: #2d2d2d;
+
+    // infor-movie
+    .wrap-infor-movie {
+        background-color: #000;
+        margin: 12px 12px 0;
+        padding-top: 1px;
+
+        h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            text-align: center;
+            background-color: #3a3a3a;
+            padding: 12px 0;
+        }
+
+        .infor-movie {
+            background-color: #191919;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .img {
+                height: 318px;
+                width: 25%;
+                padding: 6px;
+                background-color: #000;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .wrap-row {
+                width: 75%;
+            }
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            margin: 0 12px;
+
+            .column-1 {
+                font-size: 1.8rem;
+                color: #fff;
+                flex: 1 1;
+                display: flex;
+                align-items: center;
+            }
+
+            .column-2 {
+                width: 80%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                button {
+                    background-color: #313131;
+                    border: none;
+                    color: #fff;
+                    border-radius: 4px;
+                    font-weight: 600;
+                    padding: 4px 10px;
+                    margin-bottom: 6px;
+                    font-size: 1.4rem;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: #313131;
+                        background-color: #fff;
+                    }
+                }
+
+                button+button {
+                    margin-left: 8px;
+                }
+
+                span {
+                    font-size: 1.8rem;
+                    color: #fff;
+                }
+            }
+        }
+
+        .row+.row {
+            border-top: 1px solid #333;
+        }
+    }
+
+    // status-play
+    .status-play {
+        display: flex;
+        margin: 12px 12px 0;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        background-color: #404040;
+        border-radius: 6px;
+
+
+        .before {
+            display: flex;
+
+            .play {
+                padding: 8px 18px;
+                color: #fff;
+                font-size: 2.6rem;
+                border-radius: 6px;
+                box-shadow: 0 2px 2px #000;
+                line-height: 0;
+
+                &:hover {
+                    opacity: .5;
+                    cursor: pointer;
+                }
+
+                svg {
+                    width: 26px;
+                }
+            }
+
+            .play+.play {
+                margin-left: 4px;
+            }
+
+            // film-review
+            .foo-bar {
+                top: 35vh;
+                box-shadow: 0px 0px 6px #fff;
+                background-color: #212121;
+                width: 500px;
+
+                .film-review {
+
+                    .first {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        position: relative;
+
+                        .words {
+                            font-size: 2.2rem;
+                            color: #ccc;
+                        }
+                    }
+                }
+            }
+        }
+
+        .after {
+            border-radius: 6px;
+            color: #fff;
+            font-size: 3.2rem;
+            padding: 8px 18px;
+            box-shadow: 0 2px 2px #000;
+            line-height: 0;
+
+            &:hover {
+                opacity: .5;
+                cursor: pointer;
+            }
+
+            svg {
+                height: 26px;
+                width: 26px;
+            }
+        }
+    }
+
+    // part-of-movie
+    .part-of-movie {
+        margin: 12px 12px 0;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        background-color: #404040;
+        border-radius: 6px;
+
+        h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #333;
+        }
+
+        .wrap-btn {
+            padding-top: 12px;
+
+            div {
+                a {
+                    border-radius: 4px;
+                    color: #fff;
+                    font-size: 1.8rem;
+                    display: inline-block;
+                    font-weight: 600;
+                    padding: 6px 14px;
+                    background-color: #6b6a6a;
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: .5;
+                    }
+                }
+
+                a+a {
+                    margin-left: 6px;
+                }
+
+                .current-film {
+                    background-color: #ff7575;
+                    color: #dbfffe;
+                }
+
+                button+button {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+
+    // wrap-content
+    .wrap-content {
+        margin: 12px 12px 0;
+        background-color: #2d2d2d;
+        border-radius: 6px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+
+        .column-1 {
+            width: 30%;
+            background-color: #404040;
+            padding: 0 12px;
+            margin-right: 12px;
+            border-radius: 6px;
+
+            span {
+                display: block;
+                font-size: 1.6rem;
+                color: #fff;
+                padding: 8px 0;
+                border-bottom: 1px solid #000;
+            }
+
+            div {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 8px 0;
+
+                a {
+                    font-size: 1.6rem;
+                    padding: 8px 0;
+                    text-align: center;
+                    border-radius: 4px;
+                    background-color: #333232;
+                    // border: 4px solid #404040;
+                    color: #fff;
+                    width: 68px;
+                    margin-top: 4px;
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: .5;
+                        background-color: #b73a3a;
+                    }
+                }
+
+                a+a {
+                    margin-left: 2px;
+                }
+            }
+        }
+
+        .column-2 {
+            width: 70%;
+            background-color: #404040;
+            padding: 0 12px;
+            border-radius: 6px;
+
+            span {
+                display: block;
+                font-size: 1.6rem;
+                color: #fff;
+                padding: 8px 0;
+                border-bottom: 1px solid #000;
+            }
+
+            div {
+                font-size: 1.6rem;
+                color: #fff;
+                padding: 12px 0;
+                text-align: justify;
+            }
+        }
+    }
+
+    // read-stories
+    .read-stories {
+        text-align: center;
+        margin-top: 12px;
+    }
+}
+
+// msgToast
+.msg-toast {
+
+    .notification {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid;
+        padding: 6px 0;
+
+        div {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ccc !important;
+        }
+
+        span {
+            font-size: 1.6rem;
+            color: #ccc !important;
+        }
+
+    }
+
+    .descript {
+        font-size: 1.6rem;
+        margin-top: 6px;
+        color: #ccc;
+    }
+
+}

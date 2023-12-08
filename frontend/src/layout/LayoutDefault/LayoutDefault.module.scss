@@ -1,0 +1,29 @@
+.layout-default {
+    background-color: var(--outer-layout);
+
+    .wrap-body {
+        background-color: var(--outer-layout);
+        margin-top: 12px;
+
+        .body {
+            background-color: var(--inner-layout);
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+// mobile and table
+@media (max-width: 63.9375em) {}
+
+// mobile
+@media (max-width: 46.1875em) {}
+
+// table
+@media (min-width:46.25em) and (max-width: 63.9375em) {}
+
+// pc resoluction small
+@media (min-width:64em) and (max-width: 77.4375em) {}
+
+// pc resoluction big
+@media (min-width:77.5em) {}

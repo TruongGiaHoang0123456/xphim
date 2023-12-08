@@ -1,0 +1,28 @@
+.followed {
+    .require-login {
+        margin: 12px 12px 0;
+
+        span {
+
+            font-size: 1.6rem;
+            color: #ccc;
+            font-weight: 600;
+
+        }
+
+        a {
+            margin-left: 6px;
+            background: #b73a3a;
+            padding: 6px 6px;
+            font-size: 1.4rem;
+            border-radius: 4px;
+            color: #ccc;
+            display: inline-block;
+
+            &:hover {
+                cursor: pointer;
+                opacity: .5;
+            }
+        }
+    }
+}

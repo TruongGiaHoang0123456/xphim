@@ -1,0 +1,64 @@
+.wrap-topic {
+    margin: 16px 16px 0;
+    display: flex;
+    position: relative;
+
+    .topic {
+        display: inline-block;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .title {
+            color: var(--orange-color);
+            font-size: 2.4rem;
+            font-weight: 100;
+        }
+
+        .icon {
+            margin-top: 2px;
+        }
+
+        svg {
+            color: #ff9601;
+            margin-left: 6px;
+            font-size: 2.4rem;
+        }
+    }
+
+    &.m-w-0 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &.m-h-0 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+// mobile and table
+@media (max-width: 63.9375em) {}
+
+// pc resoluction small and pc resoluction large
+@media (min-width: 64em) {}
+
+// mobile
+@media (max-width: 46.1875em) {
+    .nominated-movie {
+        margin: 12px 8px 0;
+
+        .title {}
+
+        .title::after {}
+    }
+}
+
+// table
+@media (min-width:46.25em) and (max-width: 63.9375em) {}
+
+// pc resoluction small
+@media (min-width:64em) and (max-width: 77.4375em) {}
+
+// pc resoluction large
+@media (min-width:77.5em) {}

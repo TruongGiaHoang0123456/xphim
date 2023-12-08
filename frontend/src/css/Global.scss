@@ -1,0 +1,155 @@
+:root {
+  --outer-layout: #1a1a1a;
+  --inner-layout: #252525;
+  --header-layout: #222;
+  --black-color: #000;
+  --yellow-color: #4dff4d;
+  --border-color: #eee;
+  --white-color: #eee;
+  --disable-color: #999;
+  --orange-color: #ff9601;
+  --red-color: #b73a3a;
+  --brown-color: #423e3e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+}
+
+h2 {
+  margin: 0;
+}
+
+button {
+  border: none;
+}
+
+.slick-slider {
+  .slick-list {
+    margin: 0 -8px;
+
+    .slick-track {
+      display: flex;
+
+      .slick-slide {
+        margin: 0 8px;
+      }
+    }
+  }
+
+  .slick-dots {
+    position: unset !important;
+    margin: 12px 0 4px 0 !important;
+
+    li {
+
+      button {
+
+        &::before {
+
+          font-size: 16px !important;
+          color: #fff !important;
+        }
+      }
+    }
+  }
+}
+
+
+
+// search-emoji
+
+.epr-main {
+  padding: 12px;
+  // position: absolute;
+
+  .epr-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .epr-header-overlay {
+      order: 2;
+      padding: 0 !important;
+      height: 36px;
+      width: 85%;
+      margin-top: 16px;
+
+      .epr-search-container {
+        height: 100%;
+
+        .epr-icn-search {
+          margin: 0;
+        }
+
+        input {
+          height: 100%;
+        }
+      }
+    }
+
+    .epr-category-nav {
+      padding: 0;
+    }
+  }
+
+  .epr-body {
+    margin-top: 22px !important;
+
+    .epr-emoji-list {
+      width: 100%;
+
+      .epr-emoji-category-label {
+        margin: 0;
+        height: 26px;
+      }
+
+      .epr-emoji-category-content {
+        margin: 0;
+      }
+    }
+  }
+}
+
+
+// scroll-bar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  height: 200px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}

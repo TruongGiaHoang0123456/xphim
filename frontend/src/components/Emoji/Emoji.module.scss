@@ -1,0 +1,47 @@
+.wrap-emoji {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .wrap-emoji-absolute {
+        position: absolute;
+
+        .icon-close {
+            position: absolute;
+            top: 15.6%;
+            right: 4.5%;
+            background: #333333;
+            font-size: 1.8rem;
+            border-radius: 6px;
+            z-index: 10;
+            color: #c0c0bf;
+            padding: 9px 10px;
+
+            &:hover {
+
+                cursor: pointer;
+                opacity: .5;
+            }
+        }
+
+        .icon-show-emoji {
+            background: #6b6a6a;
+            color: #fff;
+            padding: 10px 14px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: block;
+            border-radius: 6px;
+            box-shadow: 0 2px 2px #000;
+
+            &:hover {
+                opacity: .8;
+                cursor: pointer;
+            }
+        }
+    }
+}
