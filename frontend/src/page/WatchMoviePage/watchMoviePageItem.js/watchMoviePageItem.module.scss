@@ -1,0 +1,28 @@
+.wrap-evaluate {
+
+    button {
+        background: #252525;
+        padding: 6px 6px;
+        border-radius: 6px;
+        border: 1px solid #eee;
+        color: #eee;
+
+        &:hover {
+            opacity: .6;
+            cursor: pointer;
+        }
+
+        span {
+            font-size: 1.6rem;
+        }
+
+        svg {
+            font-size: 1.6rem;
+            margin-left: 4px;
+        }
+    }
+
+    button+button {
+        margin-left: 6px;
+    }
+}

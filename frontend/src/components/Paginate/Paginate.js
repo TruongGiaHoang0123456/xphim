@@ -3,13 +3,13 @@ import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
 import styles from './Paginate.module.scss'
-import InforMovie from '../../components/InforMovie';
-import Topic from '../Topic';
-import TopMovie from '../TopMovie';
+import InforMovie from '../../components/InforMovie/InforMovie';
+import Topic from '../Topic/Topic';
+import TopMovie from '../TopMovie/TopMovie';
 
 let cx = classNames.bind(styles);
 
-function Paginate({ itemsPerPage = 30, items }) {
+function Paginate({ itemsPerPage = 30, topMovie = true, items, topic = 'Phim sex mới cập nhật' }) {
     const [itemOffset, setItemOffset] = useState(0);
 
     const endOffset = itemOffset + itemsPerPage;
@@ -26,51 +26,44 @@ function Paginate({ itemsPerPage = 30, items }) {
     // render item
     function Items({ currentItems }) {
         return (
-            <div className={cx('wrap-list-film')}>
-                <div className={`row-hidden-col ${cx('list-film')}`}>
-                    {currentItems &&
-                        currentItems.map((item, index) => (
-                            <InforMovie key={index}
-                                src={item.image}
-                                name={item.name}
-                                id={item.id}
-                                onClick={() => {
-                                    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
-                                }}
-                                currentEpisode={item.current_episode}
-                                numberEpisodes={item.number_episodes}
-                                mediumPoint={item.medium_point}
-                            />
-                        ))
-                    }
-                </div>
-            </div >
+            <div className={`row ${cx('list-film')}`}>
+                {currentItems?.map((item, index) => (
+                    <div key={item.id} className={`${topMovie ? 'l-3' : 'l-2-4'} t-3 m-6 ${cx('list-film-item')}`}>
+                        <InforMovie key={index}
+                            src={item.image}
+                            name={item.name}
+                            slug={item.slug}
+                            likes={item.likes}
+                            views={item.views}
+                            onClick={() => {
+                                window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+                            }}
+                        />
+                    </div>
+                ))}
+            </div>
         );
     }
 
     return (
         <div className={cx('home-body')}>
             {/* list-movie */}
-            <div className='row-m-0'>
-                <div className='col-16 l-8-5'>
-                    <div className={cx('home-list-movie')}>
-                        < Topic mw0={true} mh0={true} content='Phim sex mới cập nhật' />
-
-                        <div >
-                            <Items currentItems={currentItems} />
-                        </div>
+            <div className={`row ${cx('wrap-home-body')}`}>
+                <div className={topMovie ? 'l-8-5 t-12 m-12' : 'l-12 t-12 m-12'}>
+                    <div className={cx('wrap-topic')}>
+                        < Topic mw0={true} mh0={true} content={topic} />
                     </div>
+                    <Items currentItems={currentItems} />
                 </div>
 
                 {/* top movie */}
-                <div className='col-16 l-3-5'>
-
+                <div className={`${topMovie ? 'l-3-5 hide-on-m-t' : 'hide-on-m-t hide-on-ps-pl'} ${cx('wrap-top-movie')}`}>
                     <TopMovie />
                 </div>
             </div>
 
 
-            <div className={cx('container-pagignate')}>
+            <div className={`hide-on-m-t ${cx('container-pagignate')}`}>
                 <ReactPaginate
                     breakLabel={false}
                     onPageChange={handlePageClick}

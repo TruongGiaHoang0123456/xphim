@@ -8,75 +8,72 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import styles from './HomePageItems.module.scss'
+import { settings } from './component/settings'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
 let cx = classNames.bind(styles);
 
-const settings = {
-    dots: true,
-    autoplay: false,
-    speed: 500,
-    autoplaySpeed: 5000,
-    cssEase: "linear",
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    arrows: false,
-    // infinite: true,
-    responsive: [
-        {
-            breakpoint: 730,
-            settings: {
-                slidesToShow: 2,
-            }
-        },
-        {
-            breakpoint: 1023,
-            settings: {
-                slidesToShow: 4,
-            }
-        }
-    ]
-};
-
 const ReactSlick = () => {
-
     // data
     const [data, setData] = useState()
 
     useEffect(() => {
+        async function getUser() {
+            try {
+                const response1 = await axios.get(`http://localhost:4000/filter/top-film/day`, {
+                    params: {
+                        limit: 10
+                    }
+                });
+                setData(response1.data)
 
-        const callApi = () => {
-            async function getUser() {
-                try {
-                    const response = await axios.get('http://localhost:4000/films/views-film');
+                if (response1.data.length < 10) {
+                    const response2 = await axios.get(`http://localhost:4000/filter/top-film/week`, {
+                        params: {
+                            limit: 10
+                        }
+                    });
+                    setData(response2.data)
 
-                    setData(response.data)
-                } catch (error) {
-                    console.error(error);
+                    if (response2.data.length < 10) {
+                        const response3 = await axios.get(`http://localhost:4000/filter/top-film/month`, {
+                            params: {
+                                limit: 10
+                            }
+                        });
+                        setData(response3.data)
+                    }
                 }
+            } catch (error) {
+                console.error(error);
             }
-            getUser()
         }
-        callApi()
+        getUser()
 
-        setInterval(() => {
-            callApi()
-        }, 604800000)
     }, [])
 
     return (
         <Slider className={cx('slider')} {...settings}>
-            {data && data.map((item, index) => (
-                <div key={index} className={cx('infor-movie')}>
-                    <Link to={`/movie-information?filmId=${item.film_id}`} className={cx('container-img')}>
+            {data && data.map((item) => (
+                <div key={item.id} className={cx('infor-movie')}>
+                    <Link to={`/watch-movie/${item.slug}`} className={cx('container-img')}>
                         <img alt='avata' src={`${item.image}`} />
-                        {item.oddFilmLength ?
-                            <span>{item.oddFilmLength} phút</span>
-                            :
-                            <span>{item.maxEpisode || '??'}/{item.seriesFilmLength || '??'}</span>
-                        }
-                        <div className={cx('wrap-name')}>
+                        <div className={cx('wrap-infor')}>
                             <h3>{item.name}</h3>
-                        </div >
+                            <div className={cx('wrap-infor-interact')}>
+                                <div className={cx('views')}>
+                                    <FontAwesomeIcon icon={faEye} />
+                                    <span>{item.views}</span>
+                                </div>
+
+                                <div className={cx('likes')}>
+                                    <FontAwesomeIcon icon={faThumbsUp} />
+                                    <span>{item.likes}</span>
+                                </div>
+
+                            </div>
+                        </div>
                     </Link>
                 </div>
             ))}

@@ -1,25 +1,16 @@
 import pool from '../configs/connectDb'
 const promisePool = pool.promise();
 import jwt from 'jsonwebtoken'
+const bcrypt = require('bcryptjs');
 
 class TestControllers {
     // [method: get], [router: /]
     async test(req, res, next) {
         try {
-            const a = await promisePool.execute(
-                `
-                    select avg(evaluate_user_film.film_id) as avg, count(evaluate_user_film.film_id) as count
-                    from evaluate_user_film 
-                    join evaluates on evaluates.id = evaluate_user_film.evaluate_id
-                    where evaluate_user_film.film_id = ?
-                    group by evaluate_user_film.film_id
-                `,
-                [7]
-            )
 
-            console.log('a', a)
+            console.log('req', req.cookies.access_token);
 
-            res.status(200).json('test sucessfully!')
+            res.status(200).json('test')
         } catch (err) {
             console.log(err)
             res.status(500).json('sai')

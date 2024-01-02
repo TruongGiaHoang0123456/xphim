@@ -1,0 +1,121 @@
+.header-wrap-notify {
+    position: relative;
+
+    .wrap-icon {
+        position: relative;
+        padding: 3px 10px;
+        cursor: pointer;
+
+        svg {
+            font-size: 2.4rem;
+            color: var(--orange-color);
+        }
+
+        span {
+            font-size: 1.2rem;
+            position: absolute;
+            color: #000;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            left: 38%;
+            top: -8px;
+            border-radius: 100%;
+        }
+    }
+
+    .header-show-notify {
+        z-index: 10;
+        width: 320px;
+        background: var(--outer-layout);
+        position: absolute;
+        top: 120%;
+        right: -10px;
+        max-height: 80vh;
+        overflow-y: auto;
+
+        .notify-heading {
+            font-size: 2rem;
+            margin: 0;
+            text-align: center;
+            background: var(--red-color);
+            padding: 4px 0;
+            color: #eee;
+        }
+
+        .notify-list {
+
+            .notify-item {
+
+                &:hover {
+                    opacity: .7;
+                }
+
+                &.notify-item+.notify-item {
+                    border-top: 1px solid var(--border-color);
+                }
+
+                .notify-link {
+                    padding: 6px 12px;
+                    color: inherit;
+
+                    .notify-wrap-error {
+                        font-size: 1.6rem;
+                        display: flex;
+
+                        .topic {}
+
+                        .content {
+                            margin-left: 6px;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            display: block;
+                            overflow: hidden;
+                            padding-right: 24px;
+                        }
+                    }
+
+                    .notify-wrap-desc {
+                        font-size: 1.6rem;
+                        display: flex;
+                        align-items: center;
+                        margin-top: 6px;
+                        color: inherit;
+
+                        span {}
+
+                        p {
+                            margin: 0 0 0 6px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            flex: 1;
+                            padding-right: 24px;
+                            color: inherit;
+                        }
+                    }
+
+                    .notify-time {
+                        margin-top: 6px;
+                        display: block;
+                        font-size: 1.6rem;
+                        color: var(--disable-color);
+                    }
+                }
+            }
+        }
+
+        .btn-view-all {
+            background: #b73a3a;
+            padding: 6px 0;
+            color: #eee;
+            font-size: 1.6rem;
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+}

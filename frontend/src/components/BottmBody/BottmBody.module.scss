@@ -1,0 +1,43 @@
+.wrap-bottom-body {
+
+    .wrap-top-actor {
+
+        .top-actor-list {
+            margin-top: 8px;
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+                a {
+                    font-size: 1.6rem;
+                    padding: 2px 4px;
+                    border-radius: 6px;
+                    border: 1px solid #eee;
+                    margin-right: 6px;
+                    margin-bottom: 6px;
+                }
+            }
+        }
+    }
+
+    .wrap-top-search {
+        margin-bottom: 16px;
+
+        .top-search-list {
+            margin-top: 8px;
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+                a {
+                    font-size: 1.6rem;
+                    padding: 2px 4px;
+                    border-radius: 6px;
+                    border: 1px solid #eee;
+                    margin-right: 6px;
+                    margin-bottom: 6px;
+                }
+            }
+        }
+    }
+}

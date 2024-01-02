@@ -6,232 +6,16 @@ class FilmsControllers {
     async listFilm(req, res, next) {
 
         try {
-            const query1 = await promisePool.execute(
+            const query = await promisePool.execute(
                 `
-                select f.id, f.name, f.image, f.number_episodes, f.movie_duration,f.description, max(e.episode) as current_episode 
-                from episode_film as e join films as f 
-                on e.film_id = f.id 
-                group by f.name, f.image, f.number_episodes, f.id
+                select films.id, name, slug, image, likes, server1, count(*) as views
+                from views_film 
+                join films on films.id = views_film.film_id
+                group by films.id, name, slug, image, likes, server1
             `)
 
-            const query2 = promisePool.execute(
-                `
-                select evaluate_user_film.film_id,  cast(avg(evaluate_user_film.evaluate_id) as decimal(10,1)) as medium_point
-                from evaluate_user_film
-                join films on films.id = evaluate_user_film.film_id
-                group by evaluate_user_film.film_id
-                `
-            )
-
-            Promise.all([query1, query2]).then((data) => {
-                let followedFilm = data[0][0];
-                let mediumPoint = data[1][0];
-
-                function addMediumPoint(followedFilm, mediumPoint) {
-                    let updatedFollowedFilm = followedFilm.map((film) => {
-                        let match = mediumPoint.find((point) => point.film_id === film.id);
-
-                        if (match) {
-                            film.medium_point = match.medium_point;
-                        } else {
-                            film.mediumPoint = null
-                        }
-
-                        return film;
-                    });
-
-                    return updatedFollowedFilm;
-                }
-
-                let result = addMediumPoint(followedFilm, mediumPoint);
-
-                res.json(result)
-            })
+            res.status(200).json(query[0])
         } catch (err) {
-            console.log(err)
-        }
-    }
-
-    // [method: get], [router: /films/infor-film]
-    async inforFilm(req, res, next) {
-        try {
-            const id = req.query.filmId
-            const querys = [
-                promisePool.execute(
-                    `
-                    select *
-                    from films join episode_film on films.id = episode_film.film_id
-                    where films.id = ?
-                `,
-                    [id]
-                ),
-                promisePool.execute(
-                    `
-                    select max(episode_film.episode) as max_current from episode_film join films
-                    on episode_film.film_id = films.id
-                    and episode_film.film_id = ?
-                `,
-                    [id]
-                ),
-                promisePool.execute(
-                    `
-                    select genres.genre from genre_film 
-                    join genres on genres.genre = genre_film.genre_id
-                    where film_id = ?
-                `,
-                    [id]
-                ),
-                promisePool.execute(
-                    `
-                    select avg(evaluate_user_film.evaluate_id) as avg, count(evaluate_user_film.film_id) as count
-                    from evaluate_user_film 
-                    join evaluates on evaluates.id = evaluate_user_film.evaluate_id
-                    where evaluate_user_film.film_id = ?
-                    group by evaluate_user_film.film_id
-                `,
-                    [id]
-                ),
-                promisePool.execute(
-                    `
-                    SELECT epo.episode, epo.video_link
-                    from episode_film as epo
-                    where epo.film_id = ? and epo.source_link = 'ophim'
-                    order by epo.episode desc
-                `,
-                    [id]
-                ),
-                promisePool.execute(
-                    `
-                    select fi.id as current_film_link, fi.part as current_part, fir.part as related_part, 
-                    fir.id as related_film_link
-                    from related_film as re, films as fi, films as fir
-                    where re.film_id = fi.id and re.film_id = ?
-                    and re.related_id = fir.id
-                `,
-                    [id]
-                ),
-            ]
-
-            Promise.all(querys).then((data) => {
-
-                const result = {
-                    infor_film: data[0][0][0],
-                    max_current: data[1][0][0].max_current,
-                    genres: data[2][0],
-                    medium_point: data[3][0][0],
-                    episode_film: data[4][0],
-                    related_film: data[5][0],
-                }
-
-                res.json(result)
-            })
-
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    // [method: get], [router: /films/comment-film]
-    async commentFilm(req, res, next) {
-        try {
-            const filmId = req.query.filmId
-            const response = await promisePool.query(
-                `
-                select users.name, users.id as user_id, users.level, users.avatar, comment_user_film.film_id, comment_user_film.content, comment_user_film.time, comment_user_film.id
-                from comment_user_film
-                join episode_film on comment_user_film.film_id = episode_film.film_id
-                and comment_user_film.episode = episode_film.episode
-                join users on comment_user_film.user_id = users.id
-                where comment_user_film.film_id = ?
-                group by users.name, users.id, users.level, users.avatar, comment_user_film.film_id, comment_user_film.content, comment_user_film.time, comment_user_film.id
-                order by time desc
-                `,
-                [filmId]
-            )
-
-            const [data] = response
-
-            res.json(data)
-        }
-
-        catch (err) {
-            console.log(err)
-        }
-    }
-
-    // [method: get], [router: /films/rep-comment]
-    async repComment(req, res, next) {
-        try {
-            const filmId = req.query.filmId
-            const data = await promisePool.query(
-                `
-                select users.name, users.level, users.id as user_id, users.avatar, rep_comment.content, rep_comment.time, rep_comment.id_comment_film, rep_comment.id as comment_rep_id
-                from rep_comment
-                join users on users.id = rep_comment.user_id
-                join comment_user_film on comment_user_film.id = rep_comment.id_comment_film
-                where comment_user_film.film_id = ?
-                order by rep_comment.time asc
-                `,
-                [filmId]
-            )
-
-            res.json(data[0])
-        }
-
-        catch (err) {
-            console.log(err)
-        }
-    }
-
-    // [method: get], [router: /films/rep-episode-comment]
-    async repEpisodeComment(req, res, next) {
-        try {
-            const { id, episode } = req.params
-            const data = await promisePool.query(
-                `
-                select users.name, users.level, users.avatar, users.id as user_id, rep_comment.content, rep_comment.time, rep_comment.id_comment_film,  rep_comment.id as comment_rep_id
-                from rep_comment
-                join users on users.id = rep_comment.user_id
-                join comment_user_film on comment_user_film.id = rep_comment.id_comment_film
-                where comment_user_film.film_id = ? and comment_user_film.episode = ?
-                order by rep_comment.time asc
-                `,
-                [id, episode]
-            )
-
-            res.json(data[0])
-        }
-
-        catch (err) {
-            console.log(err)
-        }
-    }
-
-    // [method: get], [router: /films/comment-episode-film]
-    async commentEpisodeFilm(req, res, next) {
-        try {
-            const { id, episode } = req.params
-            const response = await promisePool.query(
-                `
-                select users.name, users.level, users.avatar, users.id as user_id, comment_user_film.content, comment_user_film.time, comment_user_film.id
-                from comment_user_film
-                join episode_film on comment_user_film.film_id = episode_film.film_id
-                and comment_user_film.episode = episode_film.episode
-                join users on comment_user_film.user_id = users.id
-                where comment_user_film.film_id = ?
-                and episode_film.episode = ?
-                group by users.name, users.level, users.avatar, users.id, comment_user_film.content, comment_user_film.time, comment_user_film.id
-                order by time desc
-                `,
-                [id, episode]
-            )
-
-            const [data] = response
-
-            res.json(data)
-        }
-
-        catch (err) {
             console.log(err)
         }
     }
@@ -239,54 +23,92 @@ class FilmsControllers {
     // [method: get], [router: /films/watch-film/:filmName/:episode]
     async watchFilm(req, res, next) {
         try {
-            const { filmName, episode } = req.params
+            const slug = req.params.slug
 
-            const querys = [
-                promisePool.execute(
-                    `
-                    select fi.id, fi.name, ep.episode, ep.time_upLoad, ep.video_link, ep.source_link
-                    from films as fi, episode_film as ep
-                    where fi.id = ? and ep.episode = ? and fi.id = ep.film_id
+            const query1 = promisePool.execute(
+                `
+                SELECT name, server1, server2, server3, description, actors.actor, countrys.country
+                FROM films
+                join actors on actors.id = films.actor_id
+                join countrys on countrys.id = films .country_id
+                where slug = ?
                 `,
-                    [filmName, episode]
-                ),
-                promisePool.execute(
-                    `
-                    select ep.video_link, fi.name, ep.episode
-                    from films as fi, episode_film as ep
-                    where fi.id = ? and fi.id = ep.film_id and ep.episode > ? and ep.episode < ?
+                [slug]
+            )
+
+            const query2 = promisePool.execute(
+                `
+                select genres.genre, genres.id from genre_film
+                join films on films.id = genre_film.film_id
+                join genres on genres.id = genre_film.genre_id
+                where films.slug = ?
                 `,
-                    [filmName, episode, episode + 2]
-                ),
-                promisePool.execute(
-                    `
-                    select ep.episode, ep.video_link
-                    from films as fi, episode_film as ep
-                    where fi.id = ? and fi.id = ep.film_id and ep.source_link = 'ophim'
-                    order by ep.episode desc
-                `,
-                    [filmName]
+                [slug]
+            )
+
+            const query3 = promisePool.execute(
+                `
+                select films.id, name, slug, image, server1, likes, count(*) as views
+                from views_film
+                join films on films.id = views_film.film_id
+                where films.id in  ( select films.id
+                from films
+                join actors on actors.id = films.actor_id
+                where actors.actor =
+                (select actors.actor
+                from films
+                join actors on actors.id = films.actor_id
+                where slug = ?)
                 )
-            ]
+                group by films.id, name, slug, image, server1, likes
+                limit 4
+                `,
+                [slug]
+            )
 
-            Promise.all(querys).then((data) => {
-                const inforFilm = data[0][0][0]
+            const query4 = promisePool.execute(
+                `
+                select films.id, name, slug, image, server1, likes, count(*) as views
+                from views_film
+                join films on films.id = views_film.film_id
+                where films.id in 
+                (select genre_film.film_id from genre_film 
+                join genres on genres.id = genre_film.genre_id
+                where genres.genre in
+                (select genre from genre_film
+                join genres on genres.id = genre_film.genre_id
+                join films on films.id = genre_film.film_id
+                where films.slug = ?)
+                group by genre_film.film_id)
+                group by films.id, name, slug, image, server1, likes
+                limit 8
+                `,
+                [slug]
+            )
 
-                for (let i = 0; i < data[0][0].length; i++) {
-                    inforFilm[data[0][0][i].source_link] = data[0][0][i].video_link
-                }
 
-                delete inforFilm.video_link
-                delete inforFilm.source_link
+            Promise.all([query1, query2, query3, query4]).then(([query1, query2, query3, query4]) => {
+
+                const infor_film = query1[0][0]
+                // add query 2 into query1 (query 2 is genres)
+                infor_film.genres = query2[0]
+
+                const film_related = query3[0].filter((item) => (
+                    item.slug !== slug
+                ))
+
+                const film_nominated = query4[0]
 
                 const result = {
-                    infor_film: inforFilm,
-                    next_film: data[1][0][0],
-                    list_film: data[2][0]
+                    infor_film: infor_film,
+                    film_related: film_related,
+                    film_nominated: film_nominated
                 }
 
-                res.json(result)
+                res.status(200).json(result)
             })
+
+
 
         } catch (err) {
             console.log(err)
@@ -376,24 +198,79 @@ class FilmsControllers {
         }
     }
 
-    // [method: get], [router: /films/views-film]
-    async viewsFilm(req, res, next) {
+    // [method: get], [router: /films/genres-film]
+    async genresFilm(req, res, next) {
         try {
 
             const query = await promisePool.execute(
                 `
-                select episode_film.film_id, films.name, films.number_episodes, films.image, max(episode_film.episode) as maxEpisode
-                from episode_film
-                join films on films.id = episode_film.film_id
-                where episode_film.film_id in
-                (select * from (select views_film.film_id
-                from views_film
-                join films
-                on films.id = views_film.film_id
-                group by views_film.film_id
-                order by count(film_id) desc
-                limit 10) temp_table)
-                group by episode_film.film_id, films.name, films.number_episodes, films.image
+                select * from genres order by genre asc
+                `
+            )
+
+            res.status(200).json(query[0])
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // [method: get], [router: /films/actors-film]
+    async actorsFilm(req, res, next) {
+        try {
+
+            const query = await promisePool.execute(
+                `
+                select * from actors order by actor asc
+                `
+            )
+
+            res.status(200).json(query[0])
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // [method: get], [router: /films/countrys-film]
+    async countrysFilm(req, res, next) {
+        try {
+
+            const query = await promisePool.execute(
+                `
+                select * from countrys order by country asc
+                `
+            )
+
+            res.status(200).json(query[0])
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // [method: get], [router: /films/search-film]
+    async searchFilm(req, res, next) {
+        try {
+            const { searchValue } = req.query
+
+            const query = await promisePool.execute(
+                `
+                select films.id, name, slug, image, likes, server1, count(*) as views
+                from views_film 
+                join films on films.id = views_film.film_id
+                where views_film.film_id in (
+                select films.id from films
+                join actors on actors.id = films.actor_id
+                join genre_film on genre_film.film_id = films.id
+                join genres on genres.id = genre_film.genre_id
+                where films.name like '%${searchValue}%'
+                or actors.actor like '%${searchValue}%'
+                or genres.genre like '%${searchValue}%'
+                group by films.id
+                order by films.time desc
+                )
+                group by films.id, name, slug, image, likes, server1
                 `
             )
 
@@ -405,21 +282,21 @@ class FilmsControllers {
     }
 
     // [method: get], [router: /films/search-film]
-    async searchFilm(req, res, next) {
+    async evaluateFilm(req, res, next) {
         try {
-            const { name } = req.query
+            const { slug } = req.params
 
             const query = await promisePool.execute(
                 `
-                select episode_film.film_id, films.name, films.number_episodes, films.image, max(episode_film.episode) as maxEpisode
-                from episode_film
-                join films on films.id = episode_film.film_id
-                where films.name in (select name from films where name like '%${name}%')
-                group by episode_film.film_id, films.name, films.number_episodes, films.image
-                `
+                select films.name, films.likes, films.un_likes, count(*) as views from films
+                join views_film on views_film.film_id = films.id
+                where films.slug = ?
+                group by films.name, films.likes, films.un_likes
+                `,
+                [slug]
             )
 
-            res.json(query[0])
+            res.json(query[0][0])
 
         } catch (err) {
             console.log(err)
@@ -429,17 +306,104 @@ class FilmsControllers {
     // [method: post], [router: /films/add-views-film]
     async addViewsFilm(req, res, next) {
         try {
-            const { filmId } = req.body
+            const { slug } = req.body
 
             const query = await promisePool.execute(
                 `
                 insert views_film (film_id)
-                values (?)
+                select id from films where slug = ?
                 `,
-                [filmId]
+                [slug]
             )
 
             res.json('Add Views Of Film Sucessfully!')
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // [method: post], [router: /films/add-add-search]
+    async addSearch(req, res, next) {
+        try {
+            const { searchValue } = req.body
+
+            await promisePool.execute(
+                `
+                insert searchs (value)
+                values (?)
+                `,
+                [searchValue]
+            )
+
+            res.json('Add search sucessfully!')
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // [method: put], [router: /films/update-add-like-film/:slug]
+    async updateAddLikeFilm(req, res, next) {
+        const { slug } = req.params
+        const { status } = req.body
+
+        try {
+            if (status === 'ADD_LIKE') {
+                const query = await promisePool.execute(
+                    `
+                    update films set likes = likes + 1
+                    WHERE slug = ?
+                    `,
+                    [slug]
+                )
+
+                res.status(200).json('update add like sucessfully!')
+            } else if (status === 'REMOTE_LIKE') {
+                const query = await promisePool.execute(
+                    `
+                    update films set likes = likes - 1
+                    WHERE slug = ?
+                    `,
+                    [slug]
+                )
+
+                res.status(200).json('update remote like sucessfully!')
+            }
+
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // [method: put], [router: /films/update-add-dislike-film/:slug]
+    async updateAddDislikeFilm(req, res, next) {
+        const { slug } = req.params
+        const { status } = req.body
+
+        try {
+
+            if (status === 'ADD_DISLIKE') {
+                const query = await promisePool.execute(
+                    `
+                    update films set un_likes = un_likes + 1
+                    WHERE slug = ?
+                    `,
+                    [slug]
+                )
+
+                res.status(200).json('update add dislike sucessfully!')
+            } else if (status === 'REMOTE_DISLIKE') {
+                const query = await promisePool.execute(
+                    `
+                    update films set un_likes = un_likes - 1
+                    WHERE slug = ?
+                    `,
+                    [slug]
+                )
+
+                res.status(200).json('update remove dislike sucessfully!')
+            }
 
         } catch (err) {
             console.log(err)

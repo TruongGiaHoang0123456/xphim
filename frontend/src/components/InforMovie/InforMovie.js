@@ -2,6 +2,8 @@ import classNames from 'classnames/bind';
 import { Link } from "react-router-dom";
 
 import styles from './InforMovie.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 let cx = classNames.bind(styles);
 
@@ -9,10 +11,9 @@ let cx = classNames.bind(styles);
 function InforMovie({
     src,
     onClick,
-    currentEpisode = '??',
-    numberEpisodes = '??',
-    id,
-    mediumPoint,
+    likes,
+    views,
+    slug,
     name = '?????' }) {
 
     let props = {
@@ -21,20 +22,27 @@ function InforMovie({
     }
 
     return (
-
-        <div className={`col l-3 t-3 m-6 ${cx('wrap-infor-movie-item')}`}>
-            <div {...props} className={cx('infor-movie-item')}>
-                <Link to={`/movie-information?filmId=${id}`} className={cx('container-img')}>
+        <div {...props} className={cx('infor-movie-item')}>
+            <Link to={`/watch-movie/${slug}`} className={cx('container-infor')}>
+                <div className={cx('infor-wrap-img')}>
                     <img alt={`Ảnh anime ${name}`} src={`${src}`} />
-                    {numberEpisodes === 1 ?
-                        (<span className={cx('episode')}>Full</span>)
-                        :
-                        (<span className={cx('episode')}>{currentEpisode}/{numberEpisodes || '??'}</span>)
-                    }
-                    {mediumPoint && <span className={cx('evaluate')}>{mediumPoint}</span>}
-                    <h3>{name}</h3>
-                </Link>
-            </div>
+                    <div className={cx('wrap-evaluate')}>
+                        <div className={cx('wrap-view')}>
+                            <FontAwesomeIcon icon={faEye} />
+                            <span>
+                                {views}
+                            </span>
+                        </div>
+                        <div className={cx('wrap-like')}>
+                            <FontAwesomeIcon icon={faThumbsUp} />
+                            <span>
+                                {likes}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <h3 className={cx('infor-name')}>{name}</h3>
+            </Link>
         </div>
     )
 }

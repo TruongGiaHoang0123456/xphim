@@ -1,15 +1,15 @@
-.wrap-infor-movie-item {
-    margin-top: 12px;
+.infor-movie-item {
 
-    .infor-movie-item {
+    // container-infor
+    .container-infor {
+        position: relative;
 
-        // container-img
-        .container-img {
+        .infor-wrap-img {
             position: relative;
 
             img {
                 width: 100%;
-                height: 200px;
+                height: 184px;
                 object-fit: cover;
                 cursor: pointer;
                 background-position: 22px;
@@ -18,41 +18,85 @@
                 border-radius: 6px;
             }
 
-            .episode {
+            .wrap-evaluate {
                 position: absolute;
-                top: 6px;
-                left: 12px;
-                background-color: var(--red-color);
-                color: #fff;
-                font-size: 1.6rem;
-                display: block;
-                padding: 6px 12px;
-            }
+                display: flex;
+                align-items: center;
+                opacity: 0.8;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: #000;
+                padding: 6px;
+                margin: 0 0.8px 3px 1.8px;
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
 
-            .evaluate {
-                position: absolute;
-                top: 8px;
-                right: 12px;
-                background-color: var(--red-color);
-                color: #fff;
-                font-size: 1.6rem;
-                display: block;
-                padding: 6px 12px;
-            }
+                .wrap-view {
 
-            h3 {
-                color: #eee;
-                font-size: 1.6rem;
-                margin: 0;
-                font-weight: 600;
-                height: 60px;
-                margin-top: 8px;
-                line-height: 2.2rem;
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
+                    svg {
+                        color: var(--disable-color);
+                        font-size: 1.4rem;
+                    }
+
+                    span {
+                        color: var(--disable-color);
+                        font-size: 1.4rem;
+                        margin-left: 2px;
+                    }
+                }
+
+                .wrap-like {
+                    margin-left: 6px;
+
+                    svg {
+                        color: var(--disable-color);
+                        font-size: 1.4rem;
+                    }
+
+                    span {
+                        color: var(--disable-color);
+                        font-size: 1.4rem;
+                        margin-left: 2px;
+                    }
+                }
             }
+        }
+
+        .episode {
+            position: absolute;
+            top: 6px;
+            left: 12px;
+            background-color: var(--red-color);
+            color: #fff;
+            font-size: 1.6rem;
+            display: block;
+            padding: 6px 12px;
+        }
+
+        .evaluate {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background-color: var(--red-color);
+            color: #fff;
+            font-size: 1.6rem;
+            display: block;
+            padding: 6px 12px;
+        }
+
+        .infor-name {
+            color: #eee;
+            font-size: 1.6rem;
+            margin: 0;
+            font-weight: 600;
+            max-height: 60px;
+            margin-top: 8px;
+            line-height: 2.2rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
         }
     }
 }
@@ -61,19 +105,15 @@
 
 // mobile
 @media (max-width: 46.1875em) {
-    .wrap-infor-movie-item {
-        .infor-movie {
-            margin-bottom: 8px;
-            height: 306px;
-        }
+    .infor-movie {
+        margin-bottom: 8px;
+        height: 306px;
     }
 }
 
 // table
 @media (min-width:46.25em) and (max-width: 63.9375em) {
-    .wrap-infor-movie-item {
-        .infor-movie {
-            height: 216px;
-        }
+    .infor-movie {
+        height: 216px;
     }
 }

@@ -5,7 +5,7 @@
 
     .header {
         display: flex;
-        height: 52px;
+        height: var(--height-header);
         justify-content: space-between;
         align-items: center;
 
@@ -25,10 +25,16 @@
 
 // mobile
 @media (max-width: 46.1875em) {
-    .header {
-        flex-direction: column;
-        height: unset;
-        padding: 12px;
+    .wrap-header {
+
+        .header {
+            background-color: var(--header-layout);
+            position: fixed;
+            left: 0;
+            right: 0;
+            padding: 0 16px;
+            z-index: 100;
+        }
     }
 }
 

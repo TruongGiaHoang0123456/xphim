@@ -1,17 +1,28 @@
 // render item
-.wrap-list-film {
+.list-film {
+    margin: 12px 0;
 
-    .list-film {
-        padding-bottom: 12px;
+    .list-film-item {
+        padding: 0 8px;
+        margin-bottom: 16px;
     }
 }
-
-
 
 .home-body {
     margin-top: 16px;
 
-    .home-list-movie {}
+    .wrap-home-body {
+        padding: 0 8px;
+
+        .wrap-topic {
+            margin-left: 6px;
+        }
+
+        .wrap-top-movie {
+            padding: 0 8px;
+        }
+
+    }
 
     .container-pagignate {
         display: flex;
@@ -119,3 +130,95 @@
         }
     }
 }
+
+
+
+
+
+// mobile and table
+@media (max-width: 63.9375em) {}
+
+// mobile
+@media (max-width: 46.1875em) {
+
+    // render item
+    .list-film {
+        margin: 12px 0;
+
+        .list-film-item {
+            padding: 0 8px;
+            margin-bottom: 16px;
+        }
+    }
+
+    .home-body {
+        margin-top: 16px;
+
+        .wrap-home-body {
+            .wrap-topic {}
+
+            .wrap-top-movie {}
+        }
+
+        .container-pagignate {
+            margin: 0 auto 16px;
+
+
+            .pagignate {
+
+                .previous {
+
+                    a {
+
+                        &:hover {}
+                    }
+                }
+
+                .list {
+
+                    &.active {
+
+                        a {}
+                    }
+
+                    a {
+
+                        &:hover {}
+                    }
+                }
+
+                .break {
+
+                    &.active {
+
+                        a {}
+                    }
+
+                    a {
+
+                        &:hover {}
+                    }
+                }
+
+                .next {
+
+                    a {
+
+                        &:hover {}
+                    }
+                }
+
+                .disabled {}
+            }
+        }
+    }
+}
+
+// table
+@media (min-width:46.25em) and (max-width: 63.9375em) {}
+
+// pc resoluction small
+@media (min-width:64em) and (max-width: 77.4375em) {}
+
+// pc resoluction big
+@media (min-width:77.5em) {}

@@ -1,16 +1,23 @@
 .navbar {
-    z-index: 1000;
-    background-color: #000;
+    margin: 0 auto;
     position: sticky;
-    top: 0;
+    z-index: 1;
+    top: 0px;
 
     .navbar-list {
         display: flex;
         align-items: center;
-        margin: 0 24px;
+        overflow-x: auto;
+        background-color: #000;
+
+        &::-webkit-scrollbar {
+            height: 6px;
+        }
+
 
         .navbar-item {
             margin: 8px;
+            flex-shrink: 0;
 
             .wrap-topic {
                 padding: 0 10px;
@@ -39,6 +46,227 @@
 
                 svg+.topic {
                     margin-left: 6px;
+                }
+            }
+        }
+
+        .navbar-genre {
+            margin: 8px;
+            flex-shrink: 0;
+
+            .wrap-genre-topic {
+                padding: 0 10px;
+                height: 28px;
+                display: flex;
+                border-radius: 6px;
+                background: var(--inner-layout);
+                align-items: center;
+                justify-content: center;
+                color: var(--white-color);
+                font-size: 1.6em;
+
+                &:hover {
+                    opacity: .8;
+                    cursor: pointer;
+                }
+
+                .genre-topic {}
+
+                svg {
+                    margin-left: 4px;
+                }
+            }
+
+            .genre-list {
+                position: absolute;
+                top: 100%;
+                background: var(--outer-layout);
+                border-top: 1px solid #453a3a;
+                padding: 0 2px 4px;
+                margin-left: -4px;
+
+                .genre-item {
+
+                    a {
+                        display: block;
+                        font-size: 1.5em;
+                        padding: 6px 20px;
+                        background: var(--inner-layout);
+                        color: #eee;
+                        border-radius: 6px;
+                        text-align: center;
+                        margin: 4px 2px 0;
+
+                        &:hover {
+                            background-color: #423e3e;
+                        }
+                    }
+                }
+            }
+        }
+
+        .navbar-actor {
+            margin: 8px;
+            flex-shrink: 0;
+
+            .wrap-actor-topic {
+                padding: 0 10px;
+                height: 28px;
+                display: flex;
+                border-radius: 6px;
+                background: var(--inner-layout);
+                align-items: center;
+                justify-content: center;
+                color: var(--white-color);
+                font-size: 1.6em;
+
+                &:hover {
+                    opacity: .8;
+                    cursor: pointer;
+                }
+
+                .actor-topic {}
+
+                svg {
+                    margin-left: 4px;
+                }
+            }
+
+            .actor-list {
+                position: absolute;
+                top: 100%;
+                background: var(--outer-layout);
+                border-top: 1px solid #453a3a;
+                padding: 0 2px 4px;
+                margin-left: -4px;
+
+                .actor-item {
+
+                    a {
+                        display: block;
+                        font-size: 1.5em;
+                        padding: 6px 10px;
+                        background: var(--inner-layout);
+                        color: #eee;
+                        border-radius: 6px;
+                        text-align: center;
+                        margin: 4px 2px 0;
+
+                        &:hover {
+                            background-color: #423e3e;
+                        }
+                    }
+                }
+            }
+        }
+
+        .navbar-country {
+            margin: 8px;
+            flex-shrink: 0;
+
+            .wrap-country-topic {
+                padding: 0 10px;
+                height: 28px;
+                display: flex;
+                border-radius: 6px;
+                background: var(--inner-layout);
+                align-items: center;
+                justify-content: center;
+                color: var(--white-color);
+                font-size: 1.6em;
+
+                &:hover {
+                    opacity: .8;
+                    cursor: pointer;
+                }
+
+                .country-topic {}
+
+                svg {
+                    margin-left: 4px;
+                }
+            }
+
+            .country-list {
+                position: absolute;
+                top: 100%;
+                background: var(--outer-layout);
+                border-top: 1px solid #453a3a;
+                width: 350px;
+                padding: 0 2px 4px;
+                margin-left: -4px;
+
+                .country-item {
+
+                    a {
+                        display: block;
+                        font-size: 1.5em;
+                        padding: 6px 20px;
+                        background: var(--inner-layout);
+                        color: #eee;
+                        border-radius: 6px;
+                        text-align: center;
+                        margin: 4px 2px 0;
+
+                        &:hover {
+                            background-color: #423e3e;
+                        }
+                    }
+                }
+            }
+        }
+
+        .navbar-top-movie {
+            margin: 8px;
+            flex-shrink: 0;
+
+            .wrap-top-movie-topic {
+                padding: 0 10px;
+                height: 28px;
+                display: flex;
+                border-radius: 6px;
+                background: var(--inner-layout);
+                align-items: center;
+                justify-content: center;
+                color: var(--white-color);
+                font-size: 1.6em;
+
+                &:hover {
+                    opacity: .8;
+                    cursor: pointer;
+                }
+
+                .top-movie-topic {}
+
+                svg {
+                    margin-left: 4px;
+                }
+            }
+
+            .top-movie-list {
+                position: absolute;
+                top: 100%;
+                background: var(--outer-layout);
+                border-top: 1px solid #453a3a;
+                padding: 0 2px 4px;
+                margin-left: -380px;
+
+                .top-movie-item {
+
+                    a {
+                        display: block;
+                        font-size: 1.5em;
+                        padding: 6px 20px;
+                        background: var(--inner-layout);
+                        color: #eee;
+                        border-radius: 6px;
+                        text-align: center;
+                        margin: 4px 2px 0;
+
+                        &:hover {
+                            background-color: #423e3e;
+                        }
+                    }
                 }
             }
         }

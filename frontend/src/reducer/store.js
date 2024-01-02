@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 import { configureStore } from '@reduxjs/toolkit'
 
 import userReducer from './userSlice'
+import filterReducer from './filterSlice'
 
 const persistConfig = {
     key: 'root',
@@ -11,7 +12,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-    user: userReducer
+    user: userReducer,
+    filter: filterReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

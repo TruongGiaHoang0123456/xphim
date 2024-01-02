@@ -78,7 +78,7 @@ function FilmFilter({ handleShowFilmFilter, handleUnShowFilmFilter }) {
                 </ul>
 
                 {/* list-gender */}
-                {showMovieGenre &&
+                {/* {showMovieGenre &&
                     <div className={cx('list-gender')}>
                         {data && data.genres.map((item, index) => (
                             <Link
@@ -90,9 +90,9 @@ function FilmFilter({ handleShowFilmFilter, handleUnShowFilmFilter }) {
                             </Link>
                         ))}
                     </div>
-                }
+                } */}
 
-                {showMovieYear &&
+                {/* {showMovieYear &&
                     <div className={cx('list-gender')}>
                         {data && data.years.map((item, index) => (
                             <Link
@@ -104,7 +104,7 @@ function FilmFilter({ handleShowFilmFilter, handleUnShowFilmFilter }) {
                             </Link>
                         ))}
                     </div>
-                }
+                } */}
             </div>}
         </div>
     )

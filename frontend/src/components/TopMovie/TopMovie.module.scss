@@ -6,7 +6,7 @@
 
         .top-movie-before {
             display: flex;
-            background-color: #423e3e;
+            background-color: var(--outer-layout);
 
             .top-movie-title {
                 flex: 1 1;
@@ -58,11 +58,50 @@
                             font-size: 1.6rem;
                         }
 
-                        span {
+                        .wrap-infor-interact {
                             margin-top: 6px;
-                            display: block;
-                            color: var(--disable-color);
-                            font-size: 1.4rem;
+                            display: flex;
+                            // justify-content: space-between;
+
+                            .views {
+                                display: flex;
+                                align-items: center;
+
+                                svg {
+                                    color: var(--disable-color);
+                                    font-size: 1.4rem;
+                                }
+
+                                span {
+                                    display: block;
+                                    color: var(--disable-color);
+                                    font-size: 1.4rem;
+                                    margin-left: 2px;
+                                }
+
+                            }
+
+
+                            .likes {
+                                display: flex;
+                                align-items: center;
+                                margin-left: 8px;
+
+                                svg {
+                                    color: var(--disable-color);
+                                    font-size: 1.4rem;
+                                    margin-top: -2px;
+                                }
+
+                                span {
+                                    display: block;
+                                    color: var(--disable-color);
+                                    font-size: 1.4rem;
+                                    margin-left: 2px;
+                                }
+
+                            }
+
                         }
                     }
 
@@ -73,12 +112,11 @@
 
         .top-movie-all {
 
-            span {
+            a {
                 font-size: 1.6rem;
                 color: var(--white-color);
                 padding: 4px 0;
                 text-align: center;
-                // background-color: var(--red-color);
                 border-top: 1px solid var(--border-color);
                 display: block;
 

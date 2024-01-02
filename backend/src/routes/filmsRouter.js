@@ -4,21 +4,29 @@ import FilmsControllers from '../controllers/FilmsControllers'
 const router = express.Router()
 
 const filmsRouter = () => {
+    /////////////////////multiple-api/////////////////////
     // get
+    router.get('/genres-film', FilmsControllers.genresFilm)
     router.get('/list-film', FilmsControllers.listFilm)
-    router.get('/infor-film', FilmsControllers.inforFilm)
-    router.get('/watch-film/:filmName/:episode', FilmsControllers.watchFilm)
-    router.get('/comment-film', FilmsControllers.commentFilm)
-    router.get('/rep-comment', FilmsControllers.repComment)
-    router.get('/comment-episode-film/:id/:episode', FilmsControllers.commentEpisodeFilm)
-    router.get('/rep-episode-comment/:id/:episode', FilmsControllers.repEpisodeComment)
+    router.get('/actors-film', FilmsControllers.actorsFilm)
+    router.get('/countrys-film', FilmsControllers.countrysFilm)
+
+
+    /////////////////////only-api/////////////////////
+    // get
+    router.get('/watch-film/:slug', FilmsControllers.watchFilm)
     router.get('/filter-film/filtered-film', FilmsControllers.filteredFilm)
     router.get('/filter-film/filter-list', FilmsControllers.filterList)
-    router.get('/views-film', FilmsControllers.viewsFilm)
     router.get('/search-film', FilmsControllers.searchFilm)
+    router.get('/evaluate-film/:slug', FilmsControllers.evaluateFilm)
 
     // post
     router.post('/add-views-film', FilmsControllers.addViewsFilm)
+    router.post('/add-search', FilmsControllers.addSearch)
+
+    // put
+    router.put('/update-add-like-film/:slug', FilmsControllers.updateAddLikeFilm)
+    router.put('/update-add-dislike-film/:slug', FilmsControllers.updateAddDislikeFilm)
 
     return router
 }

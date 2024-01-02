@@ -3,20 +3,16 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import styles from './SearchFilmPage.module.scss';
-import Topic from '../../components/Topic'
-import Button from '../../components/Button';
-import WrapComponentEmpty from '../../components/WrapComponentEmpty/WrapComponentEmpty';
-import Paginate from '../../components/Paginate';
+import Paginate from '../../components/Paginate/Paginate';
+import { useLocation } from 'react-router-dom';
 
 let cx = classNames.bind(styles);
 
 function SearchFilmPage() {
   // searchValue
-  const [searchValue, setSearchValue] = useState(() => {
-    const urlSearch = new URLSearchParams(window.location.search)
-
-    return urlSearch.get('name')
-  })
+  const location = useLocation();
+  const urlSearch = new URLSearchParams(location.search);
+  const searchValue = urlSearch.get('searchValue');
 
   const [data, setData] = useState()
 
@@ -26,9 +22,22 @@ function SearchFilmPage() {
       try {
         const response = await axios.get(`http://localhost:4000/films/search-film`, {
           params: {
-            name: searchValue
+            searchValue: searchValue
           }
         });
+
+        if (response.data.length !== 0) {
+          const addSearch = async function () {
+            try {
+              await axios.post(`http://localhost:4000/films/add-search`, {
+                searchValue: searchValue
+              })
+            } catch (error) {
+              console.error(error);
+            }
+          }
+          addSearch()
+        }
 
         setData(response.data)
       } catch (error) {
@@ -41,11 +50,9 @@ function SearchFilmPage() {
 
   return (
     <div>
-      {/* Topic */}
-      <Topic content={`Tìm kiếm với từ khóa: ${searchValue}`} />
 
       {/* second */}
-      {data && <Paginate items={data} />}
+      {data && <Paginate items={data} topic={`Tìm kiếm với từ khóa: ${searchValue}`} />}
     </div>
   )
 }

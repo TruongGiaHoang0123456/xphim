@@ -1,3 +1,34 @@
 .wrap-home {
     width: 100%;
+
+    .wrap-topic {}
+
+    .wrap-bottom-body {
+        margin: 0 8px;
+    }
+
 }
+
+
+// mobile and table
+@media (max-width: 63.9375em) {}
+
+// mobile
+@media (max-width: 46.1875em) {
+    .wrap-home {
+        .wrap-topic {}
+
+        .wrap-bottom-body {
+            margin: 0 16px;
+        }
+    }
+}
+
+// table
+@media (min-width:46.25em) and (max-width: 63.9375em) {}
+
+// pc resoluction small
+@media (min-width:64em) and (max-width: 77.4375em) {}
+
+// pc resoluction big
+@media (min-width:77.5em) {}

@@ -1,7 +1,20 @@
-.login {
+.wrap-page-login {
+    width: 100vw;
+    height: 100vh;
+    background: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    // form-login
     .form-login {
+        background: #333;
+        padding: 24px;
+
+        .heading {
+
+            font-size: 2.2rem;
+            color: #fff;
+        }
 
         .wrap-infor {
             display: flex;
@@ -68,7 +81,7 @@
                 }
             }
 
-            .forget-password {
+            .update-password {
                 padding: 8px 8px;
                 color: #fff;
                 border-radius: 4px;

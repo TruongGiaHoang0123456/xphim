@@ -3,7 +3,6 @@
 
     .wrap-body {
         background-color: var(--outer-layout);
-        margin-top: 12px;
 
         .body {
             background-color: var(--inner-layout);
@@ -17,7 +16,16 @@
 @media (max-width: 63.9375em) {}
 
 // mobile
-@media (max-width: 46.1875em) {}
+@media (max-width: 46.1875em) {
+    .layout-default {
+
+        .wrap-body {
+            padding-top: var(--height-header-mobile);
+
+            .body {}
+        }
+    }
+}
 
 // table
 @media (min-width:46.25em) and (max-width: 63.9375em) {}

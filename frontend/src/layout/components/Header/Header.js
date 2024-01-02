@@ -1,42 +1,32 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark, faCircleXmark, faClockRotateLeft, faHouse, faList, faMagnifyingGlass, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 import styles from './Header.module.scss'
-import FilmFilter from '../../../components/FilmFilter';
-import MenuUser from '../../../components/MenuUser';
 import Search from './HeaderItems/Search';
 import { useDispatch } from 'react-redux';
+import { updateActor, updateCountry, updateData, updateGenres, updateTopMovie } from '../../../reducer/filterSlice';
 
 let cx = classNames.bind(styles);
 
 function Header() {
-
-    const [showSearch, setShowSearch] = useState(false)
-
-    // use navigate
-    const navigate = useNavigate()
+    const [showSelectSearchMobile, setShowSelectSearchMobile] = useState(false)
 
     // use dispatch
     const dispatch = useDispatch()
 
-    // use selector
-    const inforUser = useSelector((state) => {
-        return state.user.value
-    })
-
     const [showFilmFilter, setShowFilmFilter] = useState(false)
-
-    const handleShowFilmFilter = () => {
-        setShowFilmFilter(true)
-    }
 
     const handleUnShowFilmFilter = () => {
         setShowFilmFilter(false)
+        setShowSelectSearchMobile(false)
+
+        dispatch(updateData(null))
+        dispatch(updateGenres(''))
+        dispatch(updateActor(''))
+        dispatch(updateCountry(''))
+        dispatch(updateTopMovie(''))
     }
 
     return (
@@ -49,7 +39,10 @@ function Header() {
                         </Link>
 
                         {/* search */}
-                        {<Search show={showSearch} />}
+                        {<Search
+                            showSelectSearchMobile={showSelectSearchMobile}
+                            setShowSelectSearchMobile={setShowSelectSearchMobile}
+                        />}
                     </div>
                 </div>
             </div>

@@ -10,6 +10,9 @@
   --orange-color: #ff9601;
   --red-color: #b73a3a;
   --brown-color: #423e3e;
+
+  --height-header-mobile: 52px;
+  --height-header: 52px;
 }
 
 * {
@@ -137,19 +140,19 @@ button {
   width: 10px;
 }
 
+// ::-webkit-scrollbar:hover {
+//   width: 40px;
+// }
+
 ::-webkit-scrollbar-track {
-  background: #000;
-}
-
-::-webkit-scrollbar-track:hover {
-  background: #ccc;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #000;
-  height: 200px;
-}
-
-::-webkit-scrollbar-thumb:hover {
   background: #333;
 }
+
+// ::-webkit-scrollbar-track:hover {}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {}

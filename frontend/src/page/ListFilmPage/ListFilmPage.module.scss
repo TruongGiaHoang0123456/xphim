@@ -1,35 +1,72 @@
 .list-film {
 
-    .topic {}
+    .wrap-heading {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+
+        .topic {
+            font-size: 2.2rem;
+            margin: 0;
+            line-height: 2.2rem;
+        }
+
+        .wrap-search {
+            input {
+                outline: none;
+                height: 28px;
+                width: 280px;
+            }
+        }
+
+    }
 
     .wrap-list-film {
         margin-top: 24px;
 
         .film-item {
-            margin-top: 36px;
-            display: flex;
+            padding: 36px 0 12px;
+            overflow-x: auto;
 
-            .first {
-                width: 120px;
+            .film-item-before {
+                display: flex;
+                height: 184px;
 
-                .before {
+                div {
+                    font-size: 1.6rem;
+                    height: 100%;
+                    margin-left: 12px;
+                    text-align: center;
+
                     span {
-                        font-size: 1.4rem;
+                        display: block;
                     }
 
                     h3 {
                         margin: 0;
                     }
+
+                    input {
+                        width: 100%;
+                    }
+
+                    textarea {
+                        width: 100%;
+                    }
                 }
 
-                .after {
-                    margin-top: 6px;
+                .wrap-id {
 
                     span {
-                        display: block;
-                        font-size: 1.4rem;
-
+                        display: flex;
+                        align-items: center;
+                        font-size: 1.8rem;
+                        height: 100%;
                     }
+                }
+
+                .wrap-image {
+                    min-width: 245px;
 
                     img {
                         height: 100%;
@@ -37,75 +74,115 @@
                         object-fit: cover;
                     }
                 }
+
+                .wrap-name {
+                    min-width: 162px;
+
+                    h3 {}
+                }
+
+                .wrap-slug {
+                    min-width: 162px;
+
+                    h3 {}
+                }
+
+                .wrap-genres {
+                    min-width: 124px;
+
+                    span {}
+                }
+
+                .wrap-actor {
+                    min-width: 120px;
+
+                    span {}
+                }
+
+                .wrap-country {
+                    min-width: 120px;
+
+                    span {}
+                }
+
+                .wrap-description {
+                    min-width: 720px;
+                    overflow-x: auto;
+                }
+
+                .wrap-views {
+                    min-width: 60px;
+
+                    span {}
+                }
+
+                .wrap-likes {
+                    min-width: 60px;
+
+                    span {}
+                }
+
+                .wrap-un-likes {
+                    min-width: 60px;
+
+                    span {}
+                }
+
+                .wrap-avr-likes {
+                    min-width: 60px;
+
+                    span {}
+                }
+
+                .wrap-server1 {
+                    min-width: 345px;
+
+                    span {}
+                }
+
+                .wrap-server2 {
+                    min-width: 345px;
+
+                    span {}
+                }
+
+                .wrap-server3 {
+
+                    span {}
+                }
+
+                .wrap-time {
+                    min-width: 128px;
+
+                    span {}
+                }
             }
 
-            .second {
-                width: 172px;
-                margin-left: 12px;
+            .film-item-after {
+                display: flex;
+                justify-content: center;
+                position: sticky;
+                margin-top: 24px;
+                left: 0;
 
-                .wrap-number-episode {
+                button {
+                    display: block;
+                    font-size: 1.6rem;
+                    padding: 4px 8px;
+                    border: 1px solid var(--black-color);
+                    background-color: unset;
 
-                    .name {
-                        font-size: 1.4rem;
-                    }
-
-                    .number-episode {
-                        margin-left: 6px;
-                    }
-                }
-
-                .wrap-episode-new {
-                    margin-top: 6px;
-
-                    .name {
-                        font-size: 1.4rem;
-                    }
-
-
-                    .episode-current {
-                        margin-left: 6px;
+                    &:hover {
+                        opacity: .8;
+                        cursor: pointer;
                     }
                 }
 
-                .wrap-movie-duration {
-                    margin-top: 6px;
-
-                    .name {
-                        font-size: 1.4rem;
-                    }
-
-                    .movie-duration {
-                        margin-left: 6px;
-                    }
-                }
-
-                .btn-add-film {
-                    background-color: red;
-                    color: #fff;
-                    font-size: 1.4rem;
-                    padding: 4px 16px;
-                    border-radius: 6px;
-                    margin-top: 6px;
-                    display: inline-block;
-                }
-
-            }
-
-            .third {
-                flex: 1;
-                margin-left: 12px;
-
-                div {}
-
-                span {
-                    font-size: 1.4rem;
-                }
-
-                p {
-                    text-align: justify;
-                    font-size: 1.4rem;
+                button+button {
+                    margin-left: 6px;
                 }
             }
+
         }
     }
 }

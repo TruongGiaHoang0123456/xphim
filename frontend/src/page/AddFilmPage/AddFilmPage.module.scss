@@ -44,14 +44,15 @@
                 outline: none;
             }
 
-            .wrap-list-genres {
+            .wrap-list {
                 display: flex;
                 flex-wrap: wrap;
 
-                .wrap-item-genres {
-                    // margin: 0 12px;
+                .wrap-item {
 
-                    input {}
+                    input {
+                        cursor: pointer;
+                    }
 
                     label {
                         font-size: 1.6rem;

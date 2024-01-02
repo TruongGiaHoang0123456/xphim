@@ -1,0 +1,125 @@
+.wrap-add-infor-film {
+    padding: 0 72px 24px;
+
+    .infor-film-topic {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .wrap-select-list {
+
+        .wrap-select-item {
+            margin-top: 24px;
+
+
+            .select-item-heading {
+                font-size: 1.8rem;
+                cursor: pointer;
+                color: #000;
+            }
+
+            .select-item-list {
+
+                .before {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .select-item-item {
+                        display: flex;
+                        flex-direction: column;
+
+                        .name {
+                            font-size: 1.6rem;
+                            cursor: pointer;
+                            color: #000;
+                        }
+
+                        .wrap-update {
+                            display: flex;
+
+                            input {
+                                outline: none;
+                            }
+
+                            button {
+                                display: block;
+                                font-size: 1.6rem;
+                                padding: 4px 8px;
+                                border: 1px solid var(--black-color);
+                                background-color: unset;
+
+                                &:hover {
+                                    opacity: .8;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .wrap-btn {
+                            display: flex;
+                            flex-wrap: nowrap;
+
+                            .btn-delete {
+                                cursor: pointer;
+                                display: block;
+                                font-size: 1.6rem;
+                                padding: 4px 8px;
+                                border: 1px solid var(--black-color);
+                                background-color: unset;
+                            }
+
+                            .btn-update {
+                                cursor: pointer;
+                                display: block;
+                                font-size: 1.6rem;
+                                padding: 4px 8px;
+                                border: 1px solid var(--black-color);
+                                background-color: unset;
+                            }
+                        }
+                    }
+                }
+
+                .after {
+                    margin-top: 32px;
+
+                    .wrap-add-btn {
+                        display: flex;
+
+                        input {
+                            outline: none;
+                        }
+
+                        button {
+                            display: block;
+                            font-size: 1.6rem;
+                            padding: 4px 8px;
+                            border: 1px solid var(--black-color);
+                            background-color: unset;
+
+                            &:hover {
+                                opacity: .8;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .btn-show-add {
+                        display: block;
+                        font-size: 1.6rem;
+                        padding: 4px 8px;
+                        margin: 0 auto;
+                        border: 1px solid var(--black-color);
+                        background-color: unset;
+
+                        &:hover {
+                            opacity: .8;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
