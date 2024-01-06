@@ -7,6 +7,7 @@ import styles from './Header.module.scss'
 import Search from './HeaderItems/Search';
 import { useDispatch } from 'react-redux';
 import { updateActor, updateCountry, updateData, updateGenres, updateTopMovie } from '../../../reducer/filterSlice';
+import Logo from '../../../components/Logo/Logo'
 
 let cx = classNames.bind(styles);
 
@@ -35,7 +36,7 @@ function Header() {
                 <div className='wide'>
                     <div className={cx('header')}>
                         <Link to='/' onClick={handleUnShowFilmFilter} className={cx('header-logo')}>
-                            <img alt='logo' className={cx('logo')} src='/logo.png' />
+                            <Logo fs={'4.4rem'} />
                         </Link>
 
                         {/* search */}

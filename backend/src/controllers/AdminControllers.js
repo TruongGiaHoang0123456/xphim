@@ -18,7 +18,7 @@ class AdminControllers {
 
             const queryListFilm = promisePool.execute(
                 `
-                SELECT films.id, name, slug, description, image, actors.actor, countrys.country, server1, server2, likes, un_likes, average_likes, films.time, count(DISTINCT views_film.id) as views
+                SELECT films.id, name, slug, description, image, actors.actor, countrys.country, server1, server2, likes, un_likes, average_likes, films.time, films.source, count(DISTINCT views_film.id) as views
                 FROM views_film 
                 JOIN films ON films.id = views_film.film_id
                 JOIN actors ON actors.id = films.actor_id
@@ -32,7 +32,7 @@ class AdminControllers {
                     OR countrys.country LIKE '% %'
                     ORDER BY films.time DESC
                 )
-                GROUP BY films.id, name, slug, description, image, actors.actor, countrys.country, server1, server2, likes, un_likes, average_likes, films.time
+                GROUP BY films.id, name, slug, description, image, actors.actor, countrys.country, server1, server2, likes, un_likes, average_likes, films.time, films.source
                 order by films.time desc
                 `
             )
@@ -611,7 +611,7 @@ class AdminControllers {
             const {
                 id, imageValue, nameValue, slugValue, genresValue, actorValue,
                 countryValue, descriptionValue, viewsValue, likesValue, unLikesValue,
-                avrLikesValue, server1Value, server2Value, server3Value = '', timeValue,
+                avrLikesValue, server1Value, server2Value, server3Value = '', timeValue, sourceValue
             } = req.body
 
             // check actor
@@ -715,13 +715,14 @@ class AdminControllers {
                             likes = ?, 
                             un_likes = ?, 
                             average_likes = ?, 
-                            time = ?
+                            time = ?,
+                            source = ?
                         WHERE id = ?
                     `
                         , [
                             nameValue, slugValue, descriptionValue, imageValue,
                             actorId, countryId, server1Value, server2Value, server3Value,
-                            likesValue, unLikesValue, avrLikesValue, formattedDate, id
+                            likesValue, unLikesValue, avrLikesValue, formattedDate, id, sourceValue
                         ]
                     )
                         ;

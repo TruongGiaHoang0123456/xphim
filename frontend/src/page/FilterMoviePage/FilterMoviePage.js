@@ -819,7 +819,7 @@ const FilterMoviePage = () => {
                   className={`l-2-4 t-4 m-6 ${cx('filter-genres-item')}`}
                   key={genre.id}
                   style={selectGenres.includes(genre.genre) ?
-                    { 'background': '#b73a3a' } : { 'background': 'unset' }
+                    { 'background': '#d03a3a' } : { 'background': 'unset' }
                   }
                   onClick={(e) => {
                     handleSelectGenres(genre.genre)

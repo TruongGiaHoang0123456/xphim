@@ -189,7 +189,7 @@ function Navbar() {
                         </li>
 
                         <li className={cx('navbar-item')}>
-                            <div style={selectGenres.length === 1 && selectGenres[0] === 'Việt Sub' ? { 'background': '#b73a3a' } : { 'background': '#252525' }}
+                            <div style={selectGenres.length === 1 && selectGenres[0] === 'Việt Sub' ? { 'background': '#d03a3a' } : { 'background': '#252525' }}
                                 to={`/filter-movie`} className={cx('wrap-topic')}
                                 onClick={() => {
                                     handleFilterGenre('Việt Sub')
@@ -206,7 +206,7 @@ function Navbar() {
                         }} className={cx('navbar-item')}>
                             <div
                                 style={selectGenres.length === 1 && selectGenres[0] === 'Không Che' ?
-                                    { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                    { 'background': '#d03a3a' } : { 'background': '#252525' }
                                 }
                                 to={`/filter-movie`}
                                 className={cx('wrap-topic')}
@@ -222,7 +222,7 @@ function Navbar() {
                         }} className={cx('navbar-item')}>
                             <div
                                 style={selectGenres.length === 1 && selectGenres[0] === 'Hiếp Dâm' ?
-                                    { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                    { 'background': '#d03a3a' } : { 'background': '#252525' }
                                 }
                                 to={`/filter-movie`}
                                 className={cx('wrap-topic')}
@@ -242,7 +242,7 @@ function Navbar() {
                                 setShowTopMovie(false)
                             }}
                                 style={showGenres ?
-                                    { 'background': '#b73a3a' } : { 'background': '#252525' }}
+                                    { 'background': '#d03a3a' } : { 'background': '#252525' }}
                                 className={cx('wrap-genre-topic')}
                             >
                                 <span className={cx('genre-topic')}>Thể loại</span>
@@ -256,7 +256,7 @@ function Navbar() {
                                             <li key={genre.id} className={`l-3 ${cx('genre-item')}`}>
                                                 <Link
                                                     style={selectGenres.includes(genre.genre) ?
-                                                        { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                        { 'background': '#d03a3a' } : { 'background': '#252525' }
                                                     }
                                                     onClick={() => {
                                                         handleFilterGenre(genre.genre)
@@ -280,7 +280,7 @@ function Navbar() {
                                     setShowTopMovie(false)
                                 }}
                                 style={showActors ?
-                                    { 'background': '#b73a3a' } : { 'background': '#252525' }}
+                                    { 'background': '#d03a3a' } : { 'background': '#252525' }}
                                 className={cx('wrap-actor-topic')}
                             >
                                 <span className={cx('actor-topic')}>Diễn viên</span>
@@ -293,7 +293,7 @@ function Navbar() {
                                             <li key={actor.id} className={`l-3 ${cx('actor-item')}`}>
                                                 <Link
                                                     style={selectActor === actor.actor ?
-                                                        { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                        { 'background': '#d03a3a' } : { 'background': '#252525' }
                                                     }
                                                     onClick={() => {
                                                         handleFilterActor(actor.actor)
@@ -317,7 +317,7 @@ function Navbar() {
                                     setShowTopMovie(false)
                                 }}
                                 style={showCountrys ?
-                                    { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                    { 'background': '#d03a3a' } : { 'background': '#252525' }
                                 }
                                 className={cx('wrap-country-topic')}
                             >
@@ -332,7 +332,7 @@ function Navbar() {
                                             <li key={country.id} className={`l-6 ${cx('country-item')}`}>
                                                 <Link
                                                     style={selectCountry === country.country ?
-                                                        { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                        { 'background': '#d03a3a' } : { 'background': '#252525' }
                                                     }
                                                     key={country.id}
                                                     onClick={() => {
@@ -357,7 +357,7 @@ function Navbar() {
                                 setShowTopMovie(!showTopMovie)
                             }}
                                 style={showTopMovie ?
-                                    { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                    { 'background': '#d03a3a' } : { 'background': '#252525' }
                                 }
                                 className={cx('wrap-top-movie-topic')}
                             >
@@ -370,7 +370,7 @@ function Navbar() {
                                     <li className={`l-3 ${cx('top-movie-item')}`}>
                                         <Link
                                             style={selectTopMovie === 'Lượt like' ?
-                                                { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                { 'background': '#d03a3a' } : { 'background': '#252525' }
                                             }
                                             onClick={handleFilterTopLike}
                                         >
@@ -381,7 +381,7 @@ function Navbar() {
                                     <li className={`l-3 ${cx('top-movie-item')}`}>
                                         <Link
                                             style={selectTopMovie === 'Top all' ?
-                                                { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                { 'background': '#d03a3a' } : { 'background': '#252525' }
                                             }
                                             onClick={handleFilterTopAll}
                                         >
@@ -392,7 +392,7 @@ function Navbar() {
                                     <li className={`l-3 ${cx('top-movie-item')}`}>
                                         <Link
                                             style={selectTopMovie === 'month' ?
-                                                { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                { 'background': '#d03a3a' } : { 'background': '#252525' }
                                             }
                                             onClick={() => {
                                                 handleFilterTopViews('month')
@@ -404,7 +404,7 @@ function Navbar() {
                                     <li className={`l-3 ${cx('top-movie-item')}`}>
                                         <Link
                                             style={selectTopMovie === 'week' ?
-                                                { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                { 'background': '#d03a3a' } : { 'background': '#252525' }
                                             }
                                             onClick={() => {
                                                 handleFilterTopViews('week')
@@ -416,7 +416,7 @@ function Navbar() {
                                     <li className={`l-3 ${cx('top-movie-item')}`}>
                                         <Link
                                             style={selectTopMovie === 'day' ?
-                                                { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                { 'background': '#d03a3a' } : { 'background': '#252525' }
                                             }
                                             onClick={() => {
                                                 handleFilterTopViews('day')

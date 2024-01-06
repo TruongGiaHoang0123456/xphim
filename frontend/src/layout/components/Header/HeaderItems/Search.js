@@ -381,7 +381,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                         className={cx('wrap-home')}
                         style={
                             location.pathname === '/' ?
-                                { 'color': '#ff9601' } : { 'color': '#eee' }
+                                { 'color': '#ffae3c' } : { 'color': '#eee' }
                         }
                     >
                         <FontAwesomeIcon icon={faHouse} />
@@ -391,7 +391,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                     <div className={cx('wrap-topic')}>
                         <div
                             style={showGenresMobile ?
-                                { 'color': '#ff9601' } : { 'color': '#eee' }
+                                { 'color': '#ffae3c' } : { 'color': '#eee' }
                             }
                             className={cx('wrap-name')}
                             onClick={() => {
@@ -406,7 +406,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                                     <li key={genre.id} className={`m-6 ${cx('topic-item')}`}>
                                         <Link
                                             style={selectGenres.includes(genre.genre) ?
-                                                { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                { 'background': '#d03a3a' } : { 'background': '#252525' }
                                             }
                                             onClick={() => {
                                                 handleFilterGenre(genre.genre)
@@ -424,7 +424,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                     <div className={cx('wrap-topic')}>
                         <div
                             style={showActorsMobile ?
-                                { 'color': '#ff9601' } : { 'color': '#eee' }
+                                { 'color': '#ffae3c' } : { 'color': '#eee' }
                             }
                             className={cx('wrap-name')}
                             onClick={() => {
@@ -440,7 +440,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                                     <li key={actor.id} className={`m-6 ${cx('topic-item')}`}>
                                         <Link
                                             style={selectActor === actor.actor ?
-                                                { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                { 'background': '#d03a3a' } : { 'background': '#252525' }
                                             }
                                             className={cx('topic-link')}
                                             onClick={() => {
@@ -459,7 +459,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                         <div
                             className={cx('wrap-name')}
                             style={showCountrysMobile ?
-                                { 'color': '#ff9601' } : { 'color': '#eee' }
+                                { 'color': '#ffae3c' } : { 'color': '#eee' }
                             }
                             onClick={() => {
                                 setShowCountrysMobile(!showCountrysMobile)
@@ -474,7 +474,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                                     <li key={country.id} className={`m-6 ${cx('topic-item')}`}>
                                         <Link
                                             style={selectCountry === country.country ?
-                                                { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                                { 'background': '#d03a3a' } : { 'background': '#252525' }
                                             }
                                             className={cx('topic-link')}
                                             onClick={() => {
@@ -492,7 +492,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                     <div className={cx('wrap-topic')}>
                         <div
                             style={showTopMoviesMobile ?
-                                { 'color': '#ff9601' } : { 'color': '#eee' }
+                                { 'color': '#ffae3c' } : { 'color': '#eee' }
                             }
                             className={cx('wrap-name')}
                             onClick={() => {
@@ -506,7 +506,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                             <li className={`m-6 ${cx('topic-item')}`}>
                                 <Link
                                     style={selectTopMovie === 'Lượt like' ?
-                                        { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                        { 'background': '#d03a3a' } : { 'background': '#252525' }
                                     }
                                     onClick={handleFilterTopLike}
                                     className={cx('topic-link')}
@@ -517,7 +517,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                             <li className={`m-6 ${cx('topic-item')}`}>
                                 <Link
                                     style={selectTopMovie === 'Top all' ?
-                                        { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                        { 'background': '#d03a3a' } : { 'background': '#252525' }
                                     }
                                     onClick={handleFilterTopAll}
                                     className={cx('topic-link')}
@@ -528,7 +528,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                             <li className={`m-6 ${cx('topic-item')}`}>
                                 <Link
                                     style={selectTopMovie === 'month' ?
-                                        { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                        { 'background': '#d03a3a' } : { 'background': '#252525' }
                                     }
                                     onClick={() => {
                                         handleFilterTopViews('month')
@@ -541,7 +541,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                             <li className={`m-6 ${cx('topic-item')}`}>
                                 <Link
                                     style={selectTopMovie === 'week' ?
-                                        { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                        { 'background': '#d03a3a' } : { 'background': '#252525' }
                                     }
                                     onClick={() => {
                                         handleFilterTopViews('week')
@@ -554,7 +554,7 @@ function Search({ showSelectSearchMobile, setShowSelectSearchMobile }) {
                             <li className={`m-6 ${cx('topic-item')}`}>
                                 <Link
                                     style={selectTopMovie === 'day' ?
-                                        { 'background': '#b73a3a' } : { 'background': '#252525' }
+                                        { 'background': '#d03a3a' } : { 'background': '#252525' }
                                     }
                                     onClick={() => {
                                         handleFilterTopViews('day')

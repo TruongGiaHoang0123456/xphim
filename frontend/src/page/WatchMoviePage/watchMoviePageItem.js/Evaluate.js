@@ -91,7 +91,7 @@ const Evaluate = () => {
                             handleLike('REMOTE_LIKE')
                         }}
                         style={
-                            { 'background': '#b73a3a' }
+                            { 'background': '#d03a3a' }
                         }
                     >
                         <span>{data?.likes}</span>
@@ -118,7 +118,7 @@ const Evaluate = () => {
                             handleUnLike('REMOTE_DISLIKE')
                         }}
                         style={
-                            { 'background': '#b73a3a' }
+                            { 'background': '#d03a3a' }
                         }
                     >
                         <span>{data?.un_likes}</span>

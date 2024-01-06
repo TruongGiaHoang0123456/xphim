@@ -178,7 +178,7 @@ function WatchMoviePage({ match }) {
                 }}
                 style={
                   server === 'server1' ?
-                    { 'background': '#b73a3a', 'color': '#fff' }
+                    { 'background': '#d03a3a', 'color': '#fff' }
                     :
                     { 'background': '#252525', 'color': '#fff' }
                 }
@@ -199,7 +199,7 @@ function WatchMoviePage({ match }) {
                 }}
                   style={
                     server === 'server2' ?
-                      { 'background': '#b73a3a', 'color': '#fff' }
+                      { 'background': '#d03a3a', 'color': '#fff' }
                       :
                       { 'background': '#252525', 'color': '#fff' }
                   }
@@ -222,7 +222,7 @@ function WatchMoviePage({ match }) {
                 }
                   style={
                     server === 'server3' ?
-                      { 'background': '#b73a3a', 'color': '#fff' }
+                      { 'background': '#d03a3a', 'color': '#fff' }
                       :
                       { 'background': '#252525', 'color': '#fff' }
                   }

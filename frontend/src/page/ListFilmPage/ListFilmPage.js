@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './ListFilmPage.module.scss'
 
@@ -33,6 +33,7 @@ function ListFilmPage() {
   const [server2Value, setServer2Value] = useState('')
   const [server3Value, setserver3Value] = useState('')
   const [timeValue, setTimeValue] = useState('')
+  const [sourceValue, setSourceValue] = useState('')
 
   useEffect(() => {
 
@@ -91,16 +92,6 @@ function ListFilmPage() {
     }
   }, [searchValue])
 
-  const coverDate = (time) => {
-    const date = new Date(time)
-
-    const day = date.getDay()
-    const month = date.getMonth() + 1
-    const year = date.getFullYear()
-    const result = `${year}${month}${day}`
-    return result
-  }
-
   const handleDeleteFilm = (id) => {
     async function deleteFilm() {
       try {
@@ -135,6 +126,7 @@ function ListFilmPage() {
       server2Value: server2Value,
       server3Value: server3Value,
       timeValue: timeValue,
+      sourceValue: sourceValue,
     }
 
     async function updateFilm() {
@@ -365,6 +357,17 @@ function ListFilmPage() {
                       <span>{item.time}</span>
                   }
                 </div>
+                <div className={cx('wrap-time')}>
+                  source
+                  {
+                    showUpdatefilm === item.id ?
+                      <input value={sourceValue} onChange={(e) => {
+                        setSourceValue(e.target.value)
+                      }} />
+                      :
+                      <span>{item.source}</span>
+                  }
+                </div>
               </div>
 
               {showUpdatefilm === item.id ?
@@ -396,6 +399,7 @@ function ListFilmPage() {
                     setServer2Value(item.server2)
                     setserver3Value(item.server3)
                     setTimeValue(item.time)
+                    setSourceValue(item.source)
                   }}>Sửa</button>
                   <button onClick={() => {
                     handleDeleteFilm(item.id)

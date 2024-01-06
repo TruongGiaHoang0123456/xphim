@@ -95,7 +95,7 @@ function TopMovie() {
                 <div className={cx('top-movie-before')}>
                     <div
                         onClick={() => { handleShow('month') }}
-                        style={showTopMonth ? { 'background': '#b73a3a', 'color': '#fff' } : { 'color': '#eee' }}
+                        style={showTopMonth ? { 'background': '#d03a3a', 'color': '#fff' } : { 'color': '#eee' }}
                         className={cx('top-movie-title')}
                     >
                         Top Tháng
@@ -103,7 +103,7 @@ function TopMovie() {
 
                     <div
                         onClick={() => { handleShow('Top all') }}
-                        style={showTopAll ? { 'background': '#b73a3a', 'color': '#fff' } : { 'color': '#eee' }}
+                        style={showTopAll ? { 'background': '#d03a3a', 'color': '#fff' } : { 'color': '#eee' }}
                         className={cx('top-movie-title')}
                     >
                         Top All
@@ -111,7 +111,7 @@ function TopMovie() {
 
                     <div
                         onClick={() => { handleShow('Lượt like') }}
-                        style={showTopLikes ? { 'background': '#b73a3a', 'color': '#fff' } : { 'color': '#eee' }}
+                        style={showTopLikes ? { 'background': '#d03a3a', 'color': '#fff' } : { 'color': '#eee' }}
                         className={cx('top-movie-title')}
                     >
                         Top Likes

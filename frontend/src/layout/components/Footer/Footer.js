@@ -11,8 +11,9 @@ function Footer({ content, children }) {
                 <div className='wide'>
                     <div className={cx('footer-wrap-content')}>
                         <p >
-                            SEXTOP1 là trang web phim sex chỉ dành cho các bạn trên 20 tuổi, xem phim JAV chỉ để giải trí, giải tỏa nhu cầu sinh lý, không bắt chước theo phim, tránh vi phạm pháp luật.
-                            Copyright 2023 © SEXTOP1.NET All rights reserved | Sitemap | vlxx
+                            Sex Color là một trang web giải trí phù hợp với lứa tuổi 18+ giúp xã street hiệu hả.
+                            Nhưng phải biết chừng mực tránh làm dụng ảnh hưởng đến sức khỏe của bản thân và hạnh
+                            phúc của gia đình.
                         </p>
                     </div>
                 </div>

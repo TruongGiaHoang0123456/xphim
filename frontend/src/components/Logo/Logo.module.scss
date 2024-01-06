@@ -1,0 +1,15 @@
+.wrap-logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .sex {
+        color: var(--orange-color);
+    }
+
+    .color {
+        color: #ffffff;
+        margin-left: 6px;
+    }
+}
